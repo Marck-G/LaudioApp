@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LaudioApp</string>
+    <string name="main.botonhasi">Hasi</string>
+    <string name="main.botonatera">Atera</string>
 </resources>
