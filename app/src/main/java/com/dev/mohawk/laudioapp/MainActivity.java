@@ -1,4 +1,4 @@
-package com.example.dm2.laudioapp;
+package com.dev.mohawk.laudioapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
