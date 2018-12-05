@@ -27,15 +27,13 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
+     * Permite manipular el mapa una vez esta listopara ser usad.
+     * Aqui es donde podemos poner marcadores, listeners y mover la camara
+     * Si los servicios de google play no estan instalados el ususario será dirigido para que los instale
+     * El metodo solo estara disponible y solo sera llamado una vez los servicios
+     * de google play esten instalados y se vuelva a la app.
      */
-    @Override
+
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
@@ -55,6 +53,12 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         // MARCADOR LAUDIOKO IKASTOLA
         MarkerOptions mIkastola = new MarkerOptions().position(ikastola).title("Laudioko Ikastola");
         mMap.addMarker(mIkastola);
+
+        /**
+         * EL LISTENER PARA LOS MARKER ES EL SIGUIENTE:
+         * mMap.OnMarkerClickListener
+         */
+
 
         // MARCADOR PETRI ELIZ
         MarkerOptions mPetriEliza = new MarkerOptions().position(petriEliza).title("Lamuzako Done Petri Eliza");
