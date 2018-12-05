@@ -47,4 +47,5 @@
         android:text="@string/main.botonatera"
         android:textSize="40dp" />
 
+
 </RelativeLayout>
