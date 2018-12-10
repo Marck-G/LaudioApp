@@ -59,7 +59,6 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
          * mMap.OnMarkerClickListener
          */
 
-
         // MARCADOR PETRI ELIZ
         MarkerOptions mPetriEliza = new MarkerOptions().position(petriEliza).title("Lamuzako Done Petri Eliza");
         mMap.addMarker(mPetriEliza);
