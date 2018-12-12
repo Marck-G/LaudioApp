@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="12dp"
         android:layout_marginTop="40dp"
-        android:text="Laudioko Ikastola"
+        android:text="@string/l.ikastola"
         android:textColor="@color/colorMarkerName"
         android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="27dp"
         android:layout_marginTop="205dp"
-        android:text="Done Petri Eliza"
+        android:text="@string/l.petrieliza"
         android:textColor="@color/colorMarkerName"
         android:textStyle="bold" />
 
@@ -44,7 +44,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="4dp"
         android:layout_marginTop="292dp"
-        android:text="Tren geltokia"
+        android:text="@string/l.tren"
         android:textColor="@color/colorMarkerName"
         android:textStyle="bold" />
 
@@ -55,7 +55,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="12dp"
         android:layout_marginStart="45dp"
-        android:text="Santa Cruz"
+        android:text="@string/l.cruz"
         android:textColor="@color/colorMarkerName"
         android:textStyle="bold" />
     <TextView
@@ -65,7 +65,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="61dp"
         android:layout_marginStart="124dp"
-        android:text="Zeramikako lantegia"
+        android:text="@string/l.lantegia"
         android:textColor="@color/colorMarkerName"
         android:textStyle="bold" />
 
@@ -76,7 +76,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="94dp"
         android:layout_marginStart="4dp"
-        android:text="Katuxa jauregia"
+        android:text="@string/l.jauregia"
         android:textColor="@color/colorMarkerName"
         android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="89dp"
         android:layout_marginTop="139dp"
-        android:text="Lamuzako parkea"
+        android:text="@string/l.parkea"
         android:textColor="@color/colorMarkerName"
         android:textStyle="bold" />
 
@@ -98,7 +98,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="45dp"
         android:layout_marginTop="18dp"
-        android:text="Ugarteko Dorretxea"
+        android:text="@string/l.dorretxea"
         android:textColor="@color/colorMarkerName"
         android:textStyle="bold" />
 
