@@ -19,10 +19,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class LevelChooser extends FragmentActivity implements OnMapReadyCallback,GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
-    private Marker markIkastola;
+    private Marker markIkastola,markPetriEliza,markTren,markCruz,markLantegia,markJauregia,markParkea,markDorretxea;
     private static LatLng laudio = new LatLng(43.140779, -2.966176);;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_chooser);
@@ -33,11 +32,11 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Permite manipular el mapa una vez esta listopara ser usad.
+     * Permite manipular el mapa una vez esta listo para ser usado.
      * Aqui es donde podemos poner marcadores, listeners y mover la camara
      * Si los servicios de google play no estan instalados el ususario será dirigido para que los instale
      * El metodo solo estara disponible y solo sera llamado una vez los servicios
-     * de google play esten instalados y se vuelva a la app.
+     * de google play esten instalados y se vuelva a iniciar la app.
      */
 
     public void onMapReady(GoogleMap googleMap) {
@@ -72,7 +71,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
          * float HUE_YELLOW
          *
          *
-         * position utilzia una variable de tipo LatLgn (las creadas mas arriba)
+         * position utilzia una variable de tipo LatLgn (las creadas más arriba)
          * title lo ponemos a null para que no salga cuando hacemos clic sobre el marcador
          * icon, usamos el icono por defecto pero cambiado de color
          */
@@ -84,54 +83,54 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
         markIkastola = mMap.addMarker(mIkastola);
 
-        // MARCADOR PETRI ELIZ
+        // MARCADOR PETRI ELIZA
         MarkerOptions mPetriEliza = new MarkerOptions()
                 .position(petriEliza)
                 .title(null)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-        mMap.addMarker(mPetriEliza);
+        markPetriEliza = mMap.addMarker(mPetriEliza);
 
         // MARCADOR TREN GELTOKIA
         MarkerOptions mTrenGeltokia = new MarkerOptions()
                 .position(trengeltokia)
                 .title(null)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-        mMap.addMarker(mTrenGeltokia);
+        markTren = mMap.addMarker(mTrenGeltokia);
 
         // MARCADOR SANTA CRUZ
         MarkerOptions mStCruz = new MarkerOptions()
                 .position(stCruz)
                 .title(null)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-        mMap.addMarker(mStCruz);
+        markCruz = mMap.addMarker(mStCruz);
 
         // MARCADOR ZERAMIKA LANTEGIA
         MarkerOptions mZeramika = new MarkerOptions()
                 .position(zeramika)
                 .title(null)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-        mMap.addMarker(mZeramika);
+        markLantegia = mMap.addMarker(mZeramika);
 
         // MARCADOR JAUREGIA
         MarkerOptions mJauregia = new MarkerOptions()
                 .position(jauregia)
                 .title(null)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-        mMap.addMarker(mJauregia);
+        markJauregia = mMap.addMarker(mJauregia);
 
         // MARCADOR LAMUZAKO PARKEA
         MarkerOptions mParkea = new MarkerOptions()
                 .position(parkea)
                 .title(null)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-        mMap.addMarker(mParkea);
+        markParkea = mMap.addMarker(mParkea);
 
         // MARCADOR UGARTEKO DORRETXEA
         MarkerOptions mDorretxea = new MarkerOptions()
                 .position(dorretxea)
                 .title(null)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-        mMap.addMarker(mDorretxea);
+        markDorretxea = mMap.addMarker(mDorretxea);
 
         // ESTO INDICA DONDE COMIENZA LA CAMARA
         mMap.moveCamera(CameraUpdateFactory.newLatLng(laudio));
@@ -140,18 +139,17 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         // AL PONER EL MAX ZOOM AL MISMO VALOR QUE EL MIN ZOOM IMPEDIMOS QUE SE PUEDA METER ZOOM
         mMap.setMaxZoomPreference(15.5f);
 
-        // LA SIGUIENTE LINEA DESHABILITA EL MOVIMIENTO DE LA CAMARA ASI NO PODRAN IRSE DE LAUDIO
+        // LA SIGUIENTE LINEA DESHABILITA EL MOVIMIENTO DE LA CAMARA ASI NO PODRAN MOVERSE DE LAUDIO
         mMap.getUiSettings().setAllGesturesEnabled(false);
 
         mMap.setOnMarkerClickListener(this);
     }
 
-    // METODO PARA CENTRAR LA CAMARA DE NUEVO AL PULSAR SOBRE EL BOTON
     public void atras(View view){
        finish();
     }
 
-    // EVENTO ONCLICK PARA LOS MARCADORES
+    // EVENTO onCLICK PARA LOS MARCADORES
     public boolean onMarkerClick(Marker marker) {
         if (marker.equals(markIkastola)){
 
