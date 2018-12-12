@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
-        android:src="@drawable/ic_botonmain" />
+        android:src="@drawable/ic_botonmain"
+        android:onClick="lanzarMapa"/>
 
     <ImageView
         android:id="@+id/botonatera"
@@ -29,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="510dp"
-        android:src="@drawable/ic_botonmain" />
+        android:src="@drawable/ic_botonmain"
+        android:onClick="cerrarApp"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -3,18 +3,24 @@ package com.dev.mohawk.laudioapp;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class LevelChooser extends FragmentActivity implements OnMapReadyCallback {
+public class LevelChooser extends FragmentActivity implements OnMapReadyCallback,GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
+    private Marker markIkastola;
+    private static LatLng laudio = new LatLng(43.140779, -2.966176);;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +44,6 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // MARCADORES PARA EL MAPA
-        LatLng laudio = new LatLng(43.140779, -2.966176);
         LatLng ikastola = new LatLng(43.146666666666666666666666666667, -2.9618611111111111111111111111111);
         LatLng petriEliza = new LatLng(43.143138888888888888888888888889, -2.9623055555555555555555555555556);
         LatLng trengeltokia = new LatLng(43.1426388, -2.9606111111);
@@ -48,43 +53,84 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         LatLng parkea = new LatLng(43.145861111111111111111111111111, -2.9678611111111111111111111111111);
         LatLng dorretxea = new LatLng(43.147222222222222222222222222222, -2.9691666666666666666666666666667);
 
-        // MARCADORES PARA EL MAPA
-
-        // MARCADOR LAUDIOKO IKASTOLA
-        MarkerOptions mIkastola = new MarkerOptions().position(ikastola).title("Laudioko Ikastola");
-        mMap.addMarker(mIkastola);
-
         /**
          * EL LISTENER PARA LOS MARKER ES EL SIGUIENTE:
          * mMap.OnMarkerClickListener
+         *
+         * CAMBIAR EL COLOR DE UN MARCADOR:
+         * public static BitmapDescriptor defaultMarker (float hue)
+         * Donde hue debe tener por preferencia un valor de color establecido en las siguientes constantes:
+         * float HUE_AZURE
+         * float HUE_BLUE
+         * float HUE_CYAN
+         * float HUE_GREEN
+         * float HUE_MAGENTA
+         * float HUE_ORANGE
+         * float HUE_RED
+         * float HUE_ROSE
+         * float HUE_VIOLET
+         * float HUE_YELLOW
+         *
+         *
+         * position utilzia una variable de tipo LatLgn (las creadas mas arriba)
+         * title lo ponemos a null para que no salga cuando hacemos clic sobre el marcador
+         * icon, usamos el icono por defecto pero cambiado de color
          */
 
+        // MARCADOR LAUDIOKO IKASTOLA
+        MarkerOptions mIkastola = new MarkerOptions()
+                .position(ikastola)
+                .title(null)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
+        markIkastola = mMap.addMarker(mIkastola);
+
         // MARCADOR PETRI ELIZ
-        MarkerOptions mPetriEliza = new MarkerOptions().position(petriEliza).title("Lamuzako Done Petri Eliza");
+        MarkerOptions mPetriEliza = new MarkerOptions()
+                .position(petriEliza)
+                .title(null)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
         mMap.addMarker(mPetriEliza);
 
         // MARCADOR TREN GELTOKIA
-        MarkerOptions mTrenGeltokia = new MarkerOptions().position(trengeltokia).title("Laudioko tren geltokia");
+        MarkerOptions mTrenGeltokia = new MarkerOptions()
+                .position(trengeltokia)
+                .title(null)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         mMap.addMarker(mTrenGeltokia);
 
         // MARCADOR SANTA CRUZ
-        MarkerOptions mStCruz = new MarkerOptions().position(stCruz).title("Santa Cruz de Llodio");
+        MarkerOptions mStCruz = new MarkerOptions()
+                .position(stCruz)
+                .title(null)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         mMap.addMarker(mStCruz);
 
         // MARCADOR ZERAMIKA LANTEGIA
-        MarkerOptions mZeramika = new MarkerOptions().position(zeramika).title("Zeramikako lantegia");
+        MarkerOptions mZeramika = new MarkerOptions()
+                .position(zeramika)
+                .title(null)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         mMap.addMarker(mZeramika);
 
         // MARCADOR JAUREGIA
-        MarkerOptions mJauregia = new MarkerOptions().position(jauregia).title("Katuxa jauregia");
+        MarkerOptions mJauregia = new MarkerOptions()
+                .position(jauregia)
+                .title(null)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         mMap.addMarker(mJauregia);
 
         // MARCADOR LAMUZAKO PARKEA
-        MarkerOptions mParkea = new MarkerOptions().position(parkea).title("Lamuzako parkea");
+        MarkerOptions mParkea = new MarkerOptions()
+                .position(parkea)
+                .title(null)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         mMap.addMarker(mParkea);
 
         // MARCADOR UGARTEKO DORRETXEA
-        MarkerOptions mDorretxea = new MarkerOptions().position(dorretxea).title("Ugarteko Dorretxea");
+        MarkerOptions mDorretxea = new MarkerOptions()
+                .position(dorretxea)
+                .title(null)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         mMap.addMarker(mDorretxea);
 
         // ESTO INDICA DONDE COMIENZA LA CAMARA
@@ -93,11 +139,23 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         mMap.setMinZoomPreference(15.5f);
         // AL PONER EL MAX ZOOM AL MISMO VALOR QUE EL MIN ZOOM IMPEDIMOS QUE SE PUEDA METER ZOOM
         mMap.setMaxZoomPreference(15.5f);
+
+        // LA SIGUIENTE LINEA DESHABILITA EL MOVIMIENTO DE LA CAMARA ASI NO PODRAN IRSE DE LAUDIO
+        mMap.getUiSettings().setAllGesturesEnabled(false);
+
+        mMap.setOnMarkerClickListener(this);
     }
 
     // METODO PARA CENTRAR LA CAMARA DE NUEVO AL PULSAR SOBRE EL BOTON
-    public void centrar(View view){
-        LatLng laudio = new LatLng(43.140779, -2.966176);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(laudio));
+    public void atras(View view){
+       finish();
+    }
+
+    // EVENTO ONCLICK PARA LOS MARCADORES
+    public boolean onMarkerClick(Marker marker) {
+        if (marker.equals(markIkastola)){
+
+        }
+        return true;
     }
 }
