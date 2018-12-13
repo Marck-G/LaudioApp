@@ -136,9 +136,9 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         // ESTO INDICA DONDE COMIENZA LA CAMARA
         mMap.moveCamera(CameraUpdateFactory.newLatLng(laudio));
         // CON EL MIN ZOOM INDICAMOS CON QUE ZOOM EMPIEZA LA CAMARA
-        mMap.setMinZoomPreference(15.5f);
+        mMap.setMinZoomPreference(15.2f);
         // AL PONER EL MAX ZOOM AL MISMO VALOR QUE EL MIN ZOOM IMPEDIMOS QUE SE PUEDA METER ZOOM
-        mMap.setMaxZoomPreference(15.5f);
+        mMap.setMaxZoomPreference(15.2f);
 
         // LA SIGUIENTE LINEA DESHABILITA EL MOVIMIENTO DE LA CAMARA ASI NO PODRAN MOVERSE DE LAUDIO
         mMap.getUiSettings().setAllGesturesEnabled(false);
