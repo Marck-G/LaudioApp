@@ -19,35 +19,37 @@
         android:id="@+id/botonhasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        android:src="@drawable/ic_botonmain"
-        android:onClick="lanzarMapa"/>
+        android:layout_marginBottom="205dp"
+        android:src="@drawable/ic_btn2" />
 
     <ImageView
         android:id="@+id/botonatera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="510dp"
-        android:src="@drawable/ic_botonmain"
-        android:onClick="cerrarApp"/>
+        android:layout_marginBottom="98dp"
+        android:src="@drawable/ic_btn2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="470dp"
+        android:layout_marginBottom="225dp"
         android:text="@string/main.botonhasi"
-        android:textSize="40dp" />
+        android:textSize="45dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="580dp"
+        android:layout_marginBottom="116dp"
         android:text="@string/main.botonatera"
-        android:textSize="40dp" />
+        android:textSize="45dp" />
 
 
 </RelativeLayout>

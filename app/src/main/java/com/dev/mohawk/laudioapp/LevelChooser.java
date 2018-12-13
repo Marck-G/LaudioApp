@@ -1,8 +1,12 @@
 package com.dev.mohawk.laudioapp;
 
+import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -21,6 +25,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private Marker markIkastola,markPetriEliza,markTren,markCruz,markLantegia,markJauregia,markParkea,markDorretxea;
     private static LatLng laudio = new LatLng(43.140779, -2.966176);;
+    private ImageView botonhasi;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        botonhasi = findViewById(R.id.botonhasi);
     }
 
     /**
@@ -80,7 +86,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions mIkastola = new MarkerOptions()
                 .position(ikastola)
                 .title(null)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         markIkastola = mMap.addMarker(mIkastola);
 
         // MARCADOR PETRI ELIZA
@@ -146,13 +152,14 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void atras(View view){
-       finish();
+        finish();
     }
 
     // EVENTO onCLICK PARA LOS MARCADORES
     public boolean onMarkerClick(Marker marker) {
-        if (marker.equals(markIkastola)){
-
+        if (marker.equals(markPetriEliza)){
+            Intent intento = new Intent(this, Conver_inicial.class);
+            startActivity(intento);
         }
         return true;
     }

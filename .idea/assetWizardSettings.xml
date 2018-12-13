@@ -83,6 +83,32 @@
             </PersistentState>
           </value>
         </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState>
+              <option name="children">
+                <map>
+                  <entry key="vectorAssetStep">
+                    <value>
+                      <PersistentState>
+                        <option name="values">
+                          <map>
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="height" value="160" />
+                            <entry key="outputName" value="ic_btn2hover" />
+                            <entry key="overrideSize" value="true" />
+                            <entry key="sourceFile" value="C:\Users\dm2\Desktop\Luadio\btn2Hover.svg" />
+                            <entry key="width" value="300" />
+                          </map>
+                        </option>
+                      </PersistentState>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PersistentState>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
