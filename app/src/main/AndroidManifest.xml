@@ -40,6 +40,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Conver_inicial"></activity>
+        <activity android:name=".Foto_completa"></activity>
     </application>
 
 </manifest>

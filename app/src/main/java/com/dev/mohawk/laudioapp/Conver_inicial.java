@@ -17,7 +17,6 @@ public class Conver_inicial extends AppCompatActivity {
     private ImageView bot1,bot2,bot3;
     private TextView text1,text2,text3,textBocata;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conver_inicial);
@@ -39,8 +38,6 @@ public class Conver_inicial extends AppCompatActivity {
                 textBocata.setText(getString(R.string.textoMal));
                 bot2.setImageResource(R.drawable.ic_btn22);
                 bot3.setImageResource(R.drawable.ic_btn22);
-
-
             }
         });
 
