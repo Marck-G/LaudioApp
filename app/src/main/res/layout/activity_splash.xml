@@ -17,7 +17,7 @@
             android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/american_uncial_normal"
+            android:fontFamily="@font/permanent_marker_regular"
             android:text="@string/inicio"
             android:textColor="#FFFF"
             android:textSize="50dp" />
