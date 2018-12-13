@@ -156,6 +156,11 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
             Intent intento = new Intent(this, Conver_inicial.class);
             startActivity(intento);
         }
+        if ( marker.equals( markTren ) ){
+            Intent intent = new Intent( getApplicationContext(), PuzzleActivity.class );
+            intent.putExtra( "assetName", "tren.jpg" );
+            startActivity( intent );
+        }
         return true;
     }
 }
