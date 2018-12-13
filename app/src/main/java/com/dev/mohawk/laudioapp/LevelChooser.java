@@ -95,7 +95,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions mTrenGeltokia = new MarkerOptions()
                 .position(trengeltokia)
                 .title(null)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
         markTren = mMap.addMarker(mTrenGeltokia);
 
         // MARCADOR SANTA CRUZ
