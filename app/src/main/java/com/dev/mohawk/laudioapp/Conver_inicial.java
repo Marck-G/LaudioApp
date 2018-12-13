@@ -69,7 +69,7 @@ public class Conver_inicial extends AppCompatActivity {
                        Intent intento=new Intent(Conver_inicial.this,Foto_completa.class);
                        startActivity(intento);
                     }
-                },4000);
+                },3500);
 
             }
         });
