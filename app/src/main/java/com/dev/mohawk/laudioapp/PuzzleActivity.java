@@ -289,14 +289,17 @@ public class PuzzleActivity extends AppCompatActivity {
         return ret;
     }
 //    TODO: cerrar el la actividad, cambiar para que no se cierre
-    public void checkGameOver() {
+    public void checkGameOver(){
         if (isGameOver()) {
-            new Handler().postDelayed( new Runnable() {
-                @Override
+
+            new Handler().postDelayed(new Runnable() {
+
                 public void run() {
-                    finish();
+                    // AQUI VA EL INTENT DE LA NUEVA ACTIVIDAD
+                    Intent intent = new Intent( getApplicationContext(), TrenGeltokia2.class );
+                    startActivity( intent );
                 }
-            }, 3000 );
+            },2000);
         }
     }
 
