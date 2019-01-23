@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -11,59 +12,39 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.view.View.OnTouchListener;
+import android.widget.TextView;
+
+import com.mapbox.mapboxsdk.maps.MapView;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int MAP_ANIMATION_TIME = 700;
+//    vista del mapa
+    private MapView mapView;
 
-    private ImageView botonhasi;
-    private ImageView botonatera;
+//    Botones de control:
+//      los botones se componen de una imagen y un texto, en lugar de coger las dos partes
+//      se han introducido en un layout y se trabaja directamente con el layout como un único
+//      elemento, así se facilita el trabajo.
+    private ConstraintLayout    btn_hasi; // boton de inicio
+    private ConstraintLayout    btn_atera; // boton de salida
+    private ConstraintLayout    btn_reiniciar; // boton para borrar los datos y empezar desde 0
+    private ConstraintLayout    btn_continuar; // para seguir desde la ultima actividad guardada
+    private ImageView           btn_back; // boton para salir de la vista onePoint
+//    Titulo superior
+    private TextView title;
+//    Hub de vista de un único punto, layout con los botones para la vista de un punto
+    private ConstraintLayout onePointHub;
+
+
 
     @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
+//        establecemos la vista a fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        botonhasi = findViewById(R.id.botonhasi);
-        botonatera = findViewById(R.id.botonatera);
 
-        /**
-         * LOS DOS LISTENERS SIGUIENTES SON PARA CONTROLAR CUANDO PRESIONAN EL BOTON Y CUANDO LO SUELTAN
-         * AL PRESIONAR LA IMAGEN CAMBIA PARA QUE PAREZCA UNA ANIMACION Y AL SOLTAR LA IMAGEN VUELVE A CAMBIAR
-         * Y SE LLAMA AL METODO CORRESPONDIENTE
-         */
-        botonhasi.setOnTouchListener(new OnTouchListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            public boolean onTouch(View v, MotionEvent event) {
-                int accion = event.getAction();
-                switch (accion){
-                    case MotionEvent.ACTION_DOWN:
-                        botonhasi.setImageDrawable(getDrawable(R.drawable.ic_btn2hover));
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        botonhasi.setImageDrawable(getDrawable(R.drawable.ic_btn2));
-                        lanzarMapa(v);
-                        break;
-                }
-                return true;
-            }
-        });
-        botonatera.setOnTouchListener(new OnTouchListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int accion = event.getAction();
-                switch (accion){
-                    case MotionEvent.ACTION_DOWN:
-                        botonatera.setImageDrawable(getDrawable(R.drawable.ic_btn2hover));
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        botonatera.setImageDrawable(getDrawable(R.drawable.ic_btn2));
-                        cerrarApp(v);
-                        break;
-                }
-                return true;
-            }
-        });
     }
     public void lanzarMapa (View view){
         // LANZAMOS EL MAPA
