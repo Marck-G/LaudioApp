@@ -94,5 +94,24 @@ public class DBManager extends SQLiteOpenHelper {
         return result != 0;
     }
 
+    /**
+     * Reinicia todos los datos de la base de datos
+     */
+    public void restartData(){
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        db.execSQL( "DELETE FROM " + ACTIVITIES_DATA_TABLE );
+        db.endTransaction();
+        this.updateLastPoint( 10 );
+    }
+
+    public int getLastActivity(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c =db.rawQuery( "SELECT * FROM " + LAST_POINT_TABLE, null );
+        if(c.moveToFirst() )
+            return c.getInt( 0 );
+        else
+            return -1;
+    }
 
 }
