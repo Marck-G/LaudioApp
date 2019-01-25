@@ -105,4 +105,13 @@ public class DBManager extends SQLiteOpenHelper {
         this.updateLastPoint( 10 );
     }
 
+    public int getLastActivity(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c =db.rawQuery( "SELECT * FROM " + LAST_POINT_TABLE, null );
+        if(c.moveToFirst() )
+            return c.getInt( 0 );
+        else
+            return -1;
+    }
+
 }
