@@ -12,7 +12,7 @@ public final class Places {
     public static final LatLng JAUREGIA = new LatLng(43.1335, -2.970805555556);
     public static final LatLng PARKE = new LatLng(43.1458611111, -2.9678611111);
     public static final LatLng DORRETXEA = new LatLng(43.14722222, -2.969166667);
-
+    public static final int COUNT = 8;
     public static String getName( LatLng place ){
         if( place == IKASTOLA )
             return "Ikastola";
