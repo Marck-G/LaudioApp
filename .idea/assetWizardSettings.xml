@@ -78,7 +78,8 @@
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="cropped" value="true" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\dm2\Desktop\Luadio\escudo_laudio_.png" />
+                                      <entry key="imageAsset" value="E:\DM2\Proyecto Android\laudioApp\resources\components\marker_V.png" />
+                                      <entry key="outputName" value="ic_marker_v" />
                                     </map>
                                   </option>
                                 </PersistentState>

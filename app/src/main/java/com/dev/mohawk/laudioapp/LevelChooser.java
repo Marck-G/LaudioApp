@@ -29,7 +29,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        botonhasi = findViewById(R.id.botonhasi);
+//        botonhasi = findViewById(R.id.botonhasi);
     }
 
     /**
