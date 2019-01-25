@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         } );
 //        creamos la conexion a la base de datos
         manager = new DBManager( this, "activities", null, 1 );
-//        TODO: remove this
-        manager.updateLastPoint( 3 );
+        // TODO: remove this
+        manager.updateLastPoint( 32 );
 //        recuperamos los elementos
         title = findViewById( R.id.main_title );
         btn_hasi = findViewById( R.id.btn_jaraitu );
@@ -132,14 +132,40 @@ public class MainActivity extends AppCompatActivity {
                 onBackPressed();
             }
         } );
+
+//        evento de reinicio de base de datos
+        btn_reiniciar.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick( View v ) {
+                manager.restartData();
+                restoreCamera(); // quitar cuando se lance la aplicacion
+                setMarkers();
+                // TODO: Lanzar la primera actividad
+//                Intent i = new Intent( this, Activitt.class );
+//                startActivity(i);
+//                finish();
+            }
+        } );
+
+        btn_continuar.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick( View v ) {
+                continuar();
+//                finish();
+            }
+        } );
     }
 
+//    creamos lo marcadores segun la informacion recuperada de la base de datos
     private void setMarkers(){
+//        recuperamos el id del ultimo punto
         final int lastId = Places.getId( manager.getLastPoint() );
+//        cogemos el numero total de marcadores
         final int total = Places.COUNT;
        mapView.getMapAsync( new OnMapReadyCallback() {
            @Override
            public void onMapReady( @NonNull MapboxMap mapboxMap ) {
+               mapboxMap.clear();
                IconFactory factory = IconFactory.getInstance(  MainActivity.this );
 //               colocamos los marcadores de los que ya estan hechos
                for ( int i = 1; i < lastId; i++ ){
@@ -163,13 +189,17 @@ public class MainActivity extends AppCompatActivity {
        } );
     }
 
+    private void continuar(){
+        int idLastAct = manager.getLastActivity();
+        // TODO: switch con el id y por cada, un intent
+    }
 
-    /**
-     * Devuelve la vista del mapa al la vista principal
-     */
+
+//    Devuelve la vista del mapa al la vista principal
     private void restoreCamera(){
 //        establecemos el titulo
         title.setText( "Llodio" );
+        setOnePointView( false );
 //        recuperamos el mapa de mapbox
         mapView.getMapAsync( new OnMapReadyCallback() {
             @Override
