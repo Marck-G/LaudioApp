@@ -138,12 +138,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick( View v ) {
                 manager.restartData();
-                restoreCamera(); // quitar cuando se lance la aplicacion
                 setMarkers();
-                // TODO: Lanzar la primera actividad
-//                Intent i = new Intent( this, Activitt.class );
-//                startActivity(i);
-//                finish();
+                Intent i = new Intent( MainActivity.this, Conver_inicial.class );
+                startActivity( i );
+                finish();
             }
         } );
 
