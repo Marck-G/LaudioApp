@@ -193,6 +193,16 @@ public class MainActivity extends AppCompatActivity {
     private void continuar(){
         int idLastAct = manager.getLastActivity();
         // TODO: switch con el id y por cada, un intent
+        Intent intent = null;
+        switch ( idLastAct ){
+            case 10:
+                intent = new Intent( this, Conver_inicial.class );
+            case 11:
+                intent = new Intent( this, Foto_completa.class );
+        }
+        if ( intent != null ){
+            startActivity( intent );
+        }
     }
 
 

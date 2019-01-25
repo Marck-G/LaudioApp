@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dev.mohawk.laudioapp.R;
+import com.dev.mohawk.laudioapp.database.DBManager;
 
 public class Conver_inicial extends AppCompatActivity {
 
@@ -69,6 +70,8 @@ public class Conver_inicial extends AppCompatActivity {
                        Intent intento=new Intent(Conver_inicial.this,Foto_completa.class);
                        startActivity(intento);
                        finish();
+                        DBManager manager = new DBManager( Conver_inicial.this , "activities", null, 1 );
+                        manager.updateLastPoint( 11 );
                     }
                 },3500);
 
