@@ -141,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
                 setMarkers();
                 Intent i = new Intent( MainActivity.this, Conver_inicial.class );
                 startActivity( i );
+
+//                POR TEMAS DE MEMORIA SIEMPRE CERRAMOS LA ACTIVIDAD ACTUAL DESPUES DE LLAMAR A LA
+//                SIGUIENTE ACTIVIDAD
                 finish();
             }
         } );

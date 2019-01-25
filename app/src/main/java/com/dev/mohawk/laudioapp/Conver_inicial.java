@@ -80,6 +80,8 @@ public class Conver_inicial extends AppCompatActivity {
     public void onBackPressed() {
         Intent i = new Intent( this, MainActivity.class );
         startActivity( i );
+//        POR TEMAS DE MEMORIA SIEMPRE CERRAMOS LA ACTIVIDAD ACTUAL DESPUES DE LLAMAR A LA
+//        SIGUIENTE ACTIVIDAD
         finish();
     }
 }
