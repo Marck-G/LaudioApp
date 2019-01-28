@@ -15,7 +15,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class LevelChooser extends FragmentActivity implements OnMapReadyCallback,GoogleMap.OnMarkerClickListener {
+public class LevelChooser extends FragmentActivity/* implements OnMapReadyCallback,GoogleMap.OnMarkerClickListener*/ {
 
     private GoogleMap mMap;
     private Marker markIkastola,markPetriEliza,markTren,markCruz,markLantegia,markJauregia,markParkea,markDorretxea;
@@ -26,10 +26,11 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_chooser);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+      /*  SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 //        botonhasi = findViewById(R.id.botonhasi);
+*/
     }
 
     /**
@@ -39,7 +40,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
      * El metodo solo estara disponible y solo sera llamado una vez los servicios
      * de google play esten instalados y se vuelva a iniciar la app.
      */
-
+/*
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
@@ -52,7 +53,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
         LatLng jauregia = new LatLng(43.1335, -2.9708055555555555555555555555556);
         LatLng parkea = new LatLng(43.145861111111111111111111111111, -2.9678611111111111111111111111111);
         LatLng dorretxea = new LatLng(43.147222222222222222222222222222, -2.9691666666666666666666666666667);
-
+*/
         /**
          * EL LISTENER PARA LOS MARKER ES EL SIGUIENTE:
          * mMap.OnMarkerClickListener
@@ -76,7 +77,7 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
          * title lo ponemos a null para que no salga cuando hacemos clic sobre el marcador
          * icon, usamos el icono por defecto pero cambiado de color
          */
-
+/*
         // MARCADOR LAUDIOKO IKASTOLA
         MarkerOptions mIkastola = new MarkerOptions()
                 .position(ikastola)
@@ -161,5 +162,5 @@ public class LevelChooser extends FragmentActivity implements OnMapReadyCallback
             startActivity( intent );
         }
         return true;
-    }
+    }*/
 }

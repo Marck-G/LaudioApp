@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.view.View.OnTouchListener;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ import com.marck.renfeApi.params.RequestParams;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -54,6 +56,11 @@ import java.util.Date;
 import main.Main;
 
 public class MainActivity extends AppCompatActivity {
+//    nobre archivos
+    public static final String LLODIO_ST_H_FILE = "llodio_st.h";
+    public static final String ST_LLODIO_H_FILE = "st_llodio.h";
+    public static final String MAP_OFFLINE_FILE = "mbgl-offline.db";
+//    animacion
     private static final int MAP_ANIMATION_TIME = 700;
 //    vista del mapa
     private MapView mapView;
@@ -67,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout    btn_reiniciar; // boton para borrar los datos y empezar desde 0
     private ConstraintLayout    btn_continuar; // para seguir desde la ultima actividad guardada
     private ImageView           btn_back; // boton para salir de la vista onePoint
+//    barra de progreso para la descarga del mapa
+    private ProgressBar mapLoad;
+
 //    Titulo superior
     private TextView title;
 //    Hub de vista de un único punto, layout con los botones para la vista de un punto
@@ -76,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
 //    objeto base de datos
     private DBManager manager;
 
-    public static final String LLODIO_ST_H_FILE = "llodio_st.h";
-    public static final String ST_LLODIO_H_FILE = "st_llodio.h";
 
 
 
@@ -121,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
         } );
 //        creamos la conexion a la base de datos
         manager = new DBManager( this, "activities", null, 1 );
+//        establecemos el contexto a la clase Places para poder trabajar sobre el archivo strings
+        Places.setContext( this );
 //        recuperamos los elementos
         title = findViewById( R.id.main_title );
         btn_hasi = findViewById( R.id.btn_jaraitu );
@@ -128,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
         btn_back = findViewById( R.id.btn_back );
         btn_continuar = findViewById( R.id.btn_continuar );
         btn_reiniciar = findViewById( R.id.btn_reiniciar );
+        mapLoad = findViewById( R.id.mapDownload );
+//        caracteristicas de la barra de progreso
+        mapLoad.setMax( 100 );
         onePointHub = findViewById( R.id.point_view_controllers );
 //        escondemos el hub de un punto
         onePointHub.setVisibility( View.INVISIBLE );
@@ -141,21 +154,30 @@ public class MainActivity extends AppCompatActivity {
         descargarDatos();
     }
 
+
+//    descargamos los datos que hagan falta solo si hay conexion y es necesarios
     private void descargarDatos(){
         ConnectivityManager manager = ( ConnectivityManager ) getSystemService( Context.CONNECTIVITY_SERVICE );
         NetworkInfo inf = manager.getActiveNetworkInfo();
+        File offlineMap = getFileStreamPath( MAP_OFFLINE_FILE );
         if( inf != null && inf.isConnected() ){
-            new Handler().postDelayed( new Runnable() {
+//            si no existe la base de datos, descargamos el mapa
+            if( !offlineMap.exists() )
+                new Handler().postDelayed( new Runnable() {
                 @Override
                 public void run() {
                     descargarMapa();
                 }
             }, 10 );
+            else
+                mapLoad.setVisibility(View.INVISIBLE);
             try {
                 descargaDeHorarios();
             } catch ( RenfeRequest.WrongDateFormatException e ) {
                 Log.e( "HORARIOS", "EROOR", e );
             }
+        } else{
+            mapLoad.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -393,7 +415,8 @@ public class MainActivity extends AppCompatActivity {
                     r.setParams( llodio_st );
                     r.buildURL();
                     r.connect( MainActivity.this.openFileOutput( LLODIO_ST_H_FILE, MODE_PRIVATE ) );
-                    Toast.makeText( MainActivity.this.getApplicationContext(), "Actualizados los horario", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( MainActivity.this.getApplicationContext(),
+                            "Horarios Actualizados", Toast.LENGTH_SHORT ).show();
                 } catch ( RequestParams.ParamNotFoundException e ) {
                     Log.e( "HORARIOS", "Parametros erroneos", e );
                 } catch ( FileNotFoundException e ) {
@@ -434,7 +457,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                manager.createOfflineRegion( def, null, new OfflineManager.CreateOfflineRegionCallback() {
+                manager.createOfflineRegion( def, null,
+                        new OfflineManager.CreateOfflineRegionCallback() {
                     @Override
                     public void onCreate( OfflineRegion offlineRegion ) {
                         offlineRegion.setDownloadState( offlineRegion.STATE_ACTIVE );
@@ -443,13 +467,16 @@ public class MainActivity extends AppCompatActivity {
                             public void onStatusChanged( OfflineRegionStatus status ) {
 //                                  Calculate the download percentage
                                 double percentage = status.getRequiredResourceCount() >= 0
-                                        ? (100.0 * status.getCompletedResourceCount() / status.getRequiredResourceCount()) :
+                                        ? (100.0 * status.getCompletedResourceCount()
+                                        / status.getRequiredResourceCount()) :
                                         0.0;
-
+                                mapLoad.setProgress( (int) percentage );
                                 if (status.isComplete()) {
 //                                     Download complete
+                                    mapLoad.setVisibility( View.INVISIBLE );
                                     Log.d("MAPBOX", "Region downloaded successfully.");
-                                    Toast.makeText( MainActivity.this.getApplicationContext(), "Actualizados los mapas", Toast.LENGTH_SHORT ).show();
+                                    Toast.makeText( MainActivity.this.getApplicationContext(),
+                                            "Actualizados los mapas", Toast.LENGTH_SHORT ).show();
                                 } else if (status.isRequiredResourceCountPrecise()) {
                                     Log.d("MAPBOX", percentage +"%");
                                 }
@@ -457,7 +484,7 @@ public class MainActivity extends AppCompatActivity {
 
                             @Override
                             public void onError( OfflineRegionError error ) {
-
+                                Log.e("MapBox", "Descarga del mapa: " + error.getReason() );
                             }
 
                             @Override
