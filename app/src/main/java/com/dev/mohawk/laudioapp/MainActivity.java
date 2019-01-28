@@ -38,6 +38,7 @@ import com.mapbox.mapboxsdk.offline.OfflineRegion;
 import com.mapbox.mapboxsdk.offline.OfflineRegionError;
 import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
+import com.marck.renfeApi.params.RequestParams;
 
 import org.json.JSONObject;
 
@@ -323,7 +324,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void descargaDeHorarios(){
+//        creamos las variables
+        RequestParams r = new RequestParams()
+                .put( RequestParams.HORA_DESTINO, "26" );
 
+        new Handler().postDelayed( new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        },300 );
     }
 
     private void descargarMapa(){
