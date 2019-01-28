@@ -1,5 +1,10 @@
 package com.dev.mohawk.laudioapp.mapResources;
 
+import android.app.Application;
+import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
+
+import com.dev.mohawk.laudioapp.R;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
 public final class Places {
@@ -13,25 +18,31 @@ public final class Places {
     public static final LatLng PARKE = new LatLng(43.1458611111, -2.9678611111);
     public static final LatLng DORRETXEA = new LatLng(43.14722222, -2.969166667);
     public static final int COUNT = 8;
+    public static Context ctx;
+
+    public static void setContext( Context context ){
+        ctx = context;
+    }
+
     public static String getName( LatLng place ){
         if( place == IKASTOLA )
-            return "Ikastola";
+            return ctx.getString(R.string.l_ikastola );
         if( place == ELIZA )
-            return "Eliza";
+            return ctx.getString(R.string.l_petrieliza );
         if( place == TREN )
-            return "Tren Geltoki";
+            return ctx.getString(R.string.l_tren );
         if( place == ST_CRUZ )
-            return "Santa Cruz";
+            return ctx.getString(R.string.l_cruz );
         if( place == ZERAMIKA )
-            return "Zeramika Lantegia";
+            return ctx.getString(R.string.l_lantegia );
         if( place == JAUREGIA )
-            return "Jauregia";
+            return ctx.getString(R.string.l_jauregia );
         if( place == PARKE )
-            return "Parke";
+            return ctx.getString(R.string.l_parkea );
         if( place == DORRETXEA )
-            return "Dorretxea";
+            return ctx.getString(R.string.l_dorretxea );
         else
-            return "Llodio";
+            return ctx.getString(R.string.app_name );
     }
 
     public static int getId( LatLng place){

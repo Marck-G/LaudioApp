@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">Laudio</string>
-    <string name="main.botonhasi">Hasi</string>
-    <string name="main.botonatera">Atera</string>
+    <string name="main_botonhasi">Hasi</string>
+    <string name="main_botonatera">Atera</string>
     <string name="title_activity_level_chooser">Map</string>
     <string name="inicio">Laudio</string>
-    <string name="l.ikastola">Laudioko ikastola</string>
-    <string name="l.petrieliza">Done Petri Eliza</string>
-    <string name="l.tren">Tren geltokia</string>
-    <string name="l.parkea">Lamuzako parkea</string>
-    <string name="l.dorretxea">Ugarteko Dorretxea</string>
-    <string name="l.jauregia">Katuxa Jauregia</string>
-    <string name="l.lantegia">Zeramikako lantegia</string>
-    <string name="l.cruz">Santa Cruz</string>
+    <string name="l_ikastola">Laudioko ikastola</string>
+    <string name="l_petrieliza">Done Petri Eliza</string>
+    <string name="l_tren">Tren geltokia</string>
+    <string name="l_parkea">Lamuzako parkea</string>
+    <string name="l_dorretxea">Ugarteko Dorretxea</string>
+    <string name="l_jauregia">Katuxa Jauregia</string>
+    <string name="l_lantegia">Zeramikako lantegia</string>
+    <string name="l_cruz">Santa Cruz</string>
     <string name="textoIni">Ea asmatzen dusuen argazki honetan agertzen den zatia zein eraikinarekin bat</string>
     <string name="textoMal">Ui! Kontuz! Ez diozue erantzun zuzenari eman! Saiatu berriro</string>
     <string name="textoBien">Oso ondo! Oso azkarrak zarete gero!</string>
@@ -22,4 +22,5 @@
     <string name="TrenGeltokia1">Oso ikerlari onak zarete! Lehenengo ondarea arin aurkitu duzue… ea hurrengoarekin zer gertatzen den… Horretarako, puzzle hau ondo osatu beharko duzue eta hurrengo ondarera bideratuko zaituztete.</string>
     <string name="mapbox_key">pk.eyJ1IjoiZGV2LW1hcmNrIiwiYSI6ImNqcHMwM3pieDAwYWQ0OG8xNjV1b3VrNXgifQ.kGQTu-vJ6Wtlfzc5GWghhA</string>
     <string name="style_url">mapbox://styles/dev-marck/cjps04qzd2r4k2sjjpnzyu0dx</string>
+    <string name="main_reiniciar">berrabiarazi</string>
 </resources>

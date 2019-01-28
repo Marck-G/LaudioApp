@@ -33,7 +33,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/permanent_marker_regular"
-            android:text="Llodio"
+            android:text="@string/app_name"
             android:textColor="#444"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -79,7 +79,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/permanent_marker_regular"
-            android:text="@string/main.botonatera"
+            android:text="@string/main_botonatera"
             android:textAllCaps="true"
             android:textColor="#fff"
             android:textSize="30sp"
@@ -130,7 +130,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/permanent_marker_regular"
-            android:text="@string/main.botonhasi"
+            android:text="@string/main_botonhasi"
             android:textAllCaps="true"
             android:textColor="#fff"
             android:textSize="30sp"
@@ -183,7 +183,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/permanent_marker_regular"
-                android:text="berrabiarazi"
+                android:text="@string/main_reiniciar"
                 android:textAllCaps="true"
                 android:textColor="#fff"
                 android:textSize="12sp"
@@ -240,7 +240,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/permanent_marker_regular"
-                android:text="Jarraitu"
+                android:text="@string/jarraitu"
                 android:textAllCaps="true"
                 android:textColor="#fff"
                 android:textSize="12sp"
@@ -252,6 +252,16 @@
                 mapbox:layout_constraintVertical_bias="0.45" />
         </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/mapDownload"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginBottom="1dp"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
