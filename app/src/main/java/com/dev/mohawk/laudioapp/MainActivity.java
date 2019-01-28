@@ -1,7 +1,10 @@
 package com.dev.mohawk.laudioapp;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -9,6 +12,7 @@ import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -24,10 +28,18 @@ import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
+import com.mapbox.mapboxsdk.offline.OfflineManager;
+import com.mapbox.mapboxsdk.offline.OfflineRegion;
+import com.mapbox.mapboxsdk.offline.OfflineRegionError;
+import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
+import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
+
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     private static final int MAP_ANIMATION_TIME = 700;
@@ -51,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean isPointView = false;
 //    objeto base de datos
     private DBManager manager;
+
+
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -88,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
         } );
 //        creamos la conexion a la base de datos
         manager = new DBManager( this, "activities", null, 1 );
-        // TODO: remove this
-        manager.updateLastPoint( 32 );
 //        recuperamos los elementos
         title = findViewById( R.id.main_title );
         btn_hasi = findViewById( R.id.btn_jaraitu );
@@ -106,6 +118,19 @@ public class MainActivity extends AppCompatActivity {
         restoreCamera();
 //        establecemos los eventos
         setEvents();
+    }
+
+    private void descargarDatos(){
+        ConnectivityManager manager = ( ConnectivityManager ) getSystemService( Context.CONNECTIVITY_SERVICE );
+        NetworkInfo inf = manager.getActiveNetworkInfo();
+        if( inf != null && inf.isConnected() ){
+            new Handler().postDelayed( new Runnable() {
+                @Override
+                public void run() {
+                    descargarMapa();
+                }
+            }, 200 );
+        }
     }
 
 //    establecemos todos los eventos
@@ -190,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
        } );
     }
 
+//    continuamos desde el último punto guardado
     private void continuar(){
         int idLastAct = manager.getLastActivity();
         // TODO: switch con el id y por cada, un intent
@@ -202,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if ( intent != null ){
             startActivity( intent );
+            finish();
         }
     }
 
@@ -291,6 +318,78 @@ public class MainActivity extends AppCompatActivity {
 //                colocamos la camara al mapa con una animacion
                 mapboxMap.animateCamera( CameraUpdateFactory.newCameraPosition( position ),
                         MAP_ANIMATION_TIME );
+            }
+        } );
+    }
+
+    private void descargaDeHorarios(){
+
+    }
+
+    private void descargarMapa(){
+        mapView.getMapAsync( new OnMapReadyCallback() {
+            @Override
+            public void onMapReady( @NonNull MapboxMap mapboxMap ) {
+                //        Offline Manager
+                final OfflineManager manager = OfflineManager.getInstance( MainActivity.this );
+
+                LatLngBounds puntos = new LatLngBounds.Builder()
+                        .include( Places.DORRETXEA )
+                        .include( Places.IKASTOLA )
+                        .include( Places.LLODIO )
+                        .include( Places.ELIZA )
+                        .include( Places.PARKE )
+                        .include( Places.ST_CRUZ )
+                        .include( Places.ZERAMIKA )
+                        .build();
+
+                OfflineTilePyramidRegionDefinition def = new OfflineTilePyramidRegionDefinition(
+                        getString( R.string.style_url ),
+                        puntos,
+                        10,
+                        20,
+                        MainActivity.this.getResources().getDisplayMetrics().density
+                );
+
+
+
+                manager.createOfflineRegion( def, null, new OfflineManager.CreateOfflineRegionCallback() {
+                    @Override
+                    public void onCreate( OfflineRegion offlineRegion ) {
+                        offlineRegion.setDownloadState( offlineRegion.STATE_ACTIVE );
+                        offlineRegion.setObserver( new OfflineRegion.OfflineRegionObserver() {
+                            @Override
+                            public void onStatusChanged( OfflineRegionStatus status ) {
+//                                  Calculate the download percentage
+                                double percentage = status.getRequiredResourceCount() >= 0
+                                        ? (100.0 * status.getCompletedResourceCount() / status.getRequiredResourceCount()) :
+                                        0.0;
+
+                                if (status.isComplete()) {
+//                                     Download complete
+                                    Log.d("MAPBOX", "Region downloaded successfully.");
+                                } else if (status.isRequiredResourceCountPrecise()) {
+                                    Log.d("MAPBOX", percentage +"%");
+                                }
+                            }
+
+                            @Override
+                            public void onError( OfflineRegionError error ) {
+
+                            }
+
+                            @Override
+                            public void mapboxTileCountLimitExceeded( long limit ) {
+
+                            }
+                        } );
+                    }
+
+                    @Override
+                    public void onError( String error ) {
+                        Log.e( "MAPBOX", error );
+                    }
+                } );
             }
         } );
     }
