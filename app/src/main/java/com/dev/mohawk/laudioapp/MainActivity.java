@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
@@ -19,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.view.View.OnTouchListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dev.mohawk.laudioapp.database.DBManager;
 import com.dev.mohawk.laudioapp.mapResources.Places;
@@ -38,9 +40,18 @@ import com.mapbox.mapboxsdk.offline.OfflineRegion;
 import com.mapbox.mapboxsdk.offline.OfflineRegionError;
 import com.mapbox.mapboxsdk.offline.OfflineRegionStatus;
 import com.mapbox.mapboxsdk.offline.OfflineTilePyramidRegionDefinition;
+import com.marck.renfeApi.RenfeRequest;
 import com.marck.renfeApi.params.RequestParams;
 
 import org.json.JSONObject;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import main.Main;
 
 public class MainActivity extends AppCompatActivity {
     private static final int MAP_ANIMATION_TIME = 700;
@@ -65,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
 //    objeto base de datos
     private DBManager manager;
 
+    public static final String LLODIO_ST_H_FILE = "llodio_st.h";
+    public static final String ST_LLODIO_H_FILE = "st_llodio.h";
+
 
 
 
@@ -75,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_main );
 //        establecemos la vista a fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        nos permite usar peticiones web sin estar en otro hilo
+        StrictMode.ThreadPolicy policy = new
+                StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 //        getSupportActionBar().hide();
 //        colocamos la api key
 //        recuperamos el elemento
@@ -119,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
         restoreCamera();
 //        establecemos los eventos
         setEvents();
+//        descarga de los datos
+        descargarDatos();
     }
 
     private void descargarDatos(){
@@ -130,7 +150,12 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     descargarMapa();
                 }
-            }, 200 );
+            }, 10 );
+            try {
+                descargaDeHorarios();
+            } catch ( RenfeRequest.WrongDateFormatException e ) {
+                Log.e( "HORARIOS", "EROOR", e );
+            }
         }
     }
 
@@ -323,17 +348,63 @@ public class MainActivity extends AppCompatActivity {
         } );
     }
 
-    private void descargaDeHorarios(){
+    private void descargaDeHorarios() throws RenfeRequest.WrongDateFormatException {
+        Date toDay = new Date();
+        SimpleDateFormat format = new SimpleDateFormat( "dd-MM-yyyy" );
 //        creamos las variables
-        RequestParams r = new RequestParams()
-                .put( RequestParams.HORA_DESTINO, "26" );
+        final RequestParams st_llodio = new RequestParams()
+                .put( RequestParams.HORA_DESTINO, "26" )
+                .put( RequestParams.DESTINO, "13106" ) // santa cruz
+                .put( RequestParams.ORIGEN, "13104" ) // llodio
+                .put( RequestParams.HORA_ORIGEN, "2" )
+                .put( RequestParams.FECHA, RenfeRequest.formatDate( format.format( toDay ) ) );
 
         new Handler().postDelayed( new Runnable() {
             @Override
             public void run() {
-
+                RenfeRequest r = RenfeRequest.build();
+                try {
+                    r.setParams( st_llodio );
+                    r.buildURL();
+                    r.connect( MainActivity.this.openFileOutput( ST_LLODIO_H_FILE, MODE_PRIVATE ) );
+                } catch ( RequestParams.ParamNotFoundException e ) {
+                    Log.e( "HORARIOS", "Parametros erroneos", e );
+                } catch ( FileNotFoundException e ) {
+                    Log.e( "HORARIOS", "File not found", e );
+                } catch ( MalformedURLException e ) {
+                    Log.e( "HORARIOS", "URL erronea", e );
+                } catch ( IOException e ) {
+                    Log.e( "HORARIOS", "", e );
+                }
             }
-        },300 );
+        },500 );
+
+        final RequestParams llodio_st = new RequestParams()
+                .put( RequestParams.HORA_DESTINO, "26" )
+                .put( RequestParams.DESTINO, "13104" ) // santa cruz
+                .put( RequestParams.ORIGEN, "13106" ) // llodio
+                .put( RequestParams.HORA_ORIGEN, "2" )
+                .put( RequestParams.FECHA, RenfeRequest.formatDate( format.format( toDay ) ) );
+        new Handler().postDelayed( new Runnable() {
+            @Override
+            public void run() {
+                RenfeRequest r = RenfeRequest.build();
+                try {
+                    r.setParams( llodio_st );
+                    r.buildURL();
+                    r.connect( MainActivity.this.openFileOutput( LLODIO_ST_H_FILE, MODE_PRIVATE ) );
+                    Toast.makeText( MainActivity.this.getApplicationContext(), "Actualizados los horario", Toast.LENGTH_SHORT ).show();
+                } catch ( RequestParams.ParamNotFoundException e ) {
+                    Log.e( "HORARIOS", "Parametros erroneos", e );
+                } catch ( FileNotFoundException e ) {
+                    Log.e( "HORARIOS", "File not found", e );
+                } catch ( MalformedURLException e ) {
+                    Log.e( "HORARIOS", "URL erronea", e );
+                } catch ( IOException e ) {
+                    Log.e( "HORARIOS", "", e );
+                }
+            }
+        }, 1000 );
     }
 
     private void descargarMapa(){
@@ -378,6 +449,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (status.isComplete()) {
 //                                     Download complete
                                     Log.d("MAPBOX", "Region downloaded successfully.");
+                                    Toast.makeText( MainActivity.this.getApplicationContext(), "Actualizados los mapas", Toast.LENGTH_SHORT ).show();
                                 } else if (status.isRequiredResourceCountPrecise()) {
                                     Log.d("MAPBOX", percentage +"%");
                                 }
