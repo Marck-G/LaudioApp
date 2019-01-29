@@ -16,7 +16,7 @@ public class Foto_completa extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent( this, MainActivity.class );
+        Intent i = new Intent( this, HorarioActivity.class );
         startActivity( i );
         finish();
     }

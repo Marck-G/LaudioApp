@@ -23,4 +23,5 @@
     <string name="mapbox_key">pk.eyJ1IjoiZGV2LW1hcmNrIiwiYSI6ImNqcHMwM3pieDAwYWQ0OG8xNjV1b3VrNXgifQ.kGQTu-vJ6Wtlfzc5GWghhA</string>
     <string name="style_url">mapbox://styles/dev-marck/cjps04qzd2r4k2sjjpnzyu0dx</string>
     <string name="main_reiniciar">berrabiarazi</string>
+    <string name="h_last_update">Ultima actualizacion: %s</string>
 </resources>
