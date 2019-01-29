@@ -15,8 +15,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+
         <!-- La actividad principal sólo se podrá ver en formato vertical -->
-        <activity android:name=".MainActivity"  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
         <!--
             TODO: borrar la API KEY
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -55,7 +58,8 @@
         </provider>
 
         <activity android:name=".TrenGeltokia1" />
-        <activity android:name=".TrenGeltokia2"></activity>
+        <activity android:name=".TrenGeltokia2" />
+        <activity android:name=".HorariosActivity"></activity>
     </application>
 
 </manifest>
