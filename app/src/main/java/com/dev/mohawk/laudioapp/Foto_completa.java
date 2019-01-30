@@ -17,6 +17,7 @@ public class Foto_completa extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent i = new Intent( this, HorarioActivity.class );
+        i.putExtra( HorarioActivity.DIRECCION, HorarioActivity.ST_LLODIO );
         startActivity( i );
         finish();
     }

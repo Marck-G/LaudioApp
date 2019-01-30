@@ -44,7 +44,7 @@
 
     <ListView
         android:id="@+id/h_lista"
-        android:layout_width="312dp"
+        android:layout_width="351dp"
         android:layout_height="354dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -54,5 +54,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ListView>
+
 
 </android.support.constraint.ConstraintLayout>
