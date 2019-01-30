@@ -52,7 +52,7 @@ public class HorarioActivity extends AppCompatActivity {
                         HorariosListAdapter ad = new HorariosListAdapter( HorarioActivity.this, R.id.h_lista, data );
                         ( ( ListView )findViewById( R.id.h_lista ) ).setAdapter( ad );
                     } catch ( Selector.EmptyDocumentException e ) {
-                        Log.e( "Horarios", "Erro de lectura", e );
+                        Log.e( "Horarios", "Error de lectura", e );
                     }
                 }
             } , 300 );
@@ -60,7 +60,7 @@ public class HorarioActivity extends AppCompatActivity {
 
 
         } catch ( FileNotFoundException e ) {
-            e.printStackTrace();
+           Toast.makeText( getApplicationContext(), "No se han encontrado los horario", Toast.LENGTH_SHORT ).show();
         } catch ( IOException e ) {
             e.printStackTrace();
         }
