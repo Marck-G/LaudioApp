@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.dev.mohawk.laudioapp.R;
+import com.dev.mohawk.laudioapp.mapResources.Places;
 
 public class Foto_completa extends AppCompatActivity {
 
@@ -16,7 +17,8 @@ public class Foto_completa extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent( this, HorarioActivity.class );
+        Intent i = new Intent( this, NavegacionActivity.class );
+        i.putExtra( NavegacionActivity.DESTINO, Places.getId( Places.ELIZA ));
         startActivity( i );
         finish();
     }

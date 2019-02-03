@@ -369,7 +369,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
     }
-
+//    descarga de horarios
     private void descargaDeHorarios() throws RenfeRequest.WrongDateFormatException {
         Date toDay = new Date();
         SimpleDateFormat format = new SimpleDateFormat( "dd-MM-yyyy" );
