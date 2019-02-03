@@ -1,24 +1,39 @@
 package com.dev.mohawk.laudioapp;
 
+import android.annotation.SuppressLint;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.dev.mohawk.laudioapp.mapResources.Places;
+import com.mapbox.android.core.location.LocationEngineCallback;
+import com.mapbox.android.core.location.LocationEngineResult;
+import com.mapbox.android.core.permissions.PermissionsListener;
+import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
+import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.location.LocationComponent;
+import com.mapbox.mapboxsdk.location.LocationComponentOptions;
+import com.mapbox.mapboxsdk.location.modes.CameraMode;
+import com.mapbox.mapboxsdk.location.modes.RenderMode;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
+
+import java.util.List;
 
 public class NavegacionActivity extends AppCompatActivity {
 
     public static final String DESTINO = "nav_dst";
 
     private MapView mapa;
+
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
@@ -30,22 +45,30 @@ public class NavegacionActivity extends AppCompatActivity {
         final int destino;
         destino = getIntent().getExtras().getInt( DESTINO );
         mapa.getMapAsync( new OnMapReadyCallback() {
+            @SuppressLint("MissingPermission")
             @Override
-            public void onMapReady( @NonNull MapboxMap mapboxMap ) {
+            public void onMapReady( @NonNull final MapboxMap mapboxMap ) {
                 mapboxMap.getUiSettings().setLogoEnabled( false );
                 mapboxMap.getUiSettings().setAttributionEnabled( false );
-
+                mapboxMap.addMarker(new MarkerOptions().position( Places.getPlace( destino ) ) );
                 CameraPosition def = new CameraPosition.Builder()
                         .target( Places.getPlace( destino ) )
                         .zoom( 13 )
-                        .tilt( 30 )
+                        .tilt( 58 )
                         .build();
 
                 mapboxMap.setStyle( new Style.Builder().fromUrl( getString( R.string.style_url ) ) );
                 mapboxMap.animateCamera( CameraUpdateFactory.newCameraPosition( def ), 400 );
+
             }
         } );
     }
+
+    private void enableLocationComponent() {
+
+
+    }
+
 
     @Override
     protected void onResume() {
