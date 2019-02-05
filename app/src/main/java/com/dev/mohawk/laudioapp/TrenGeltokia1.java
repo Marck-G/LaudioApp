@@ -44,5 +44,6 @@ public class TrenGeltokia1 extends AppCompatActivity {
         Intent intent = new Intent( getApplicationContext(), PuzzleActivity.class );
         intent.putExtra( "assetName", "tren.jpg" );
         startActivity( intent );
+        finish();
     }
 }
