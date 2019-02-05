@@ -20,6 +20,7 @@
     <string name="respBien">LAMUZAKO ELIZA</string>
     <string name="jarraitu">Jarraitu</string>
     <string name="TrenGeltokia1">Oso ikerlari onak zarete! Lehenengo ondarea arin aurkitu duzue… ea hurrengoarekin zer gertatzen den… Horretarako, puzzle hau ondo osatu beharko duzue eta hurrengo ondarera bideratuko zaituztete.</string>
+    <string name="TrenGeltokia2">Zein ondo egiten duzue!! Benetan apartekoak zaretela!!</string>
     <string name="mapbox_key">pk.eyJ1IjoiZGV2LW1hcmNrIiwiYSI6ImNqcHMwM3pieDAwYWQ0OG8xNjV1b3VrNXgifQ.kGQTu-vJ6Wtlfzc5GWghhA</string>
     <string name="style_url">mapbox://styles/dev-marck/cjps04qzd2r4k2sjjpnzyu0dx</string>
     <string name="main_reiniciar">berrabiarazi</string>
