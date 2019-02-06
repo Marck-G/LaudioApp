@@ -83,7 +83,9 @@ public class NavegacionActivity extends AppCompatActivity {
                         @Override
                         public void onPermissionResult( boolean granted ) {
                             if ( !granted ){
+//                                si no hay pormisos mostramos el mensaje y pasamos a la siguiente actividad
                                 Toast.makeText( NavegacionActivity.this, "No se puede acceder a la navegacion", Toast.LENGTH_SHORT );
+                                starActivity();
                             }
                         }
                     } ).requestLocationPermissions( NavegacionActivity.this );
