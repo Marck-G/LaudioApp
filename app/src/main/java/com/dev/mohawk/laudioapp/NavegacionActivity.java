@@ -59,7 +59,7 @@ public class NavegacionActivity extends AppCompatActivity {
                 CameraPosition def = new CameraPosition.Builder()
                         .target( Places.getPlace( destino ) )
                         .zoom( 16 )
-                        .tilt( 30 )
+                        .tilt( 58 )
                         .build();
                 mapboxMap.setStyle( new Style.Builder().fromUrl( getString( R.string.style_url ) ),
                         new Style.OnStyleLoaded() {
