@@ -99,4 +99,9 @@ public final class Places {
         boolean longCheck = lgn >= minLong && lgn <= maxLong;
         return latCheck && longCheck;
     }
+
+    public static int getActivityId( LatLng place, int activityId ){
+        String id = getId( place ) + String.valueOf( activityId );
+        return Integer.parseInt( id );
+    }
 }
