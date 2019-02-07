@@ -17,8 +17,9 @@ public class Foto_completa extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+//        Intent i = new Intent( this, TrenGeltokia1.class );
         Intent i = new Intent( this, NavegacionActivity.class );
-        i.putExtra( NavegacionActivity.DESTINO, Places.getId( Places.ELIZA ));
+        i.putExtra( NavegacionActivity.DESTINO, Places.getId( Places.TREN ) );
         startActivity( i );
         finish();
     }
