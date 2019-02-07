@@ -11,6 +11,7 @@ import com.dev.mohawk.laudioapp.mapResources.Places;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
 public class DBManager extends SQLiteOpenHelper {
+    public static final String DB_NAME = "activities";
 //    nombre de las tablas correspondientes
     public static final String LAST_POINT_TABLE = "last_point";
     public static final String ACTIVITIES_DATA_TABLE = "act_data";
