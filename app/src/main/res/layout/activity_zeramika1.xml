@@ -123,5 +123,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/zeramika1_img"
         app:layout_constraintVertical_bias="0.19" />
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/zeramika1_trena"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:background="@drawable/background_img_piedra"
+        android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/permanent_marker_regular"
+            android:text="@string/zeramika1_trena"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/amarillo0"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

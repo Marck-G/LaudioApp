@@ -1,11 +1,15 @@
 package com.dev.mohawk.laudioapp;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
 
 public class Zeramika1Activity extends AppCompatActivity {
     private ConstraintLayout imgs;
@@ -55,5 +59,37 @@ public class Zeramika1Activity extends AppCompatActivity {
                 }, 1000);
             }
         }, 4000);
+    }
+
+    private void showTrena(){
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                findViewById( R.id.zeramika1_trena ).setVisibility( View.VISIBLE );
+            }
+        }, 10000);
+
+    }
+    private void saveChanges(){
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.ZERAMIKA ) + "1" ;
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    private void nextActivity(){
+        saveChanges();
+        Intent i = new Intent( this, HorarioActivity.class );
+        i.putExtra( HorarioActivity.DIRECCION, HorarioActivity.LLODIO_ST );
+        startActivity( i );
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent( this, MainActivity.class );
+        startActivity( i );
     }
 }
