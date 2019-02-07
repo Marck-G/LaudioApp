@@ -35,7 +35,7 @@ public class NavegacionActivity extends AppCompatActivity {
 
     public static final String DESTINO = "nav_dst";
     public static final String ACTIVIDAD = "act";
-    public static final int ACTV2 =  0x0002;
+    public static final int ZERAMIKA2 =  0x0002;
 
 
     private MapView mapa;
@@ -120,6 +120,9 @@ public class NavegacionActivity extends AppCompatActivity {
 
     public void starActivity(){
         Intent i = null;
+        switch ( actividadSiguiente ){
+            case ZERAMIKA2: i = new Intent( this, Zeramika2Activity.class );
+        }
 
     }
 
