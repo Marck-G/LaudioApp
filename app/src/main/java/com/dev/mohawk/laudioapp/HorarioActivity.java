@@ -1,5 +1,6 @@
 package com.dev.mohawk.laudioapp;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -23,9 +24,15 @@ import static com.dev.mohawk.laudioapp.MainActivity.LLODIO_ST_H_FILE;
 import static com.dev.mohawk.laudioapp.MainActivity.ST_LLODIO_H_FILE;
 
 public class HorarioActivity extends AppCompatActivity {
-    public static final int LLODIO_ST = 0x00f2;
     public static final String DIRECCION = "DIRECCION";
+    public static final int LLODIO_ST = 0x00f2;
     public static final int ST_LLODIO = 0x00f1;
+
+    public static final String  ACTIVIDAD_SIGUIENTE = "act_sg";
+    public static final int     ZERAMIKA_2 = 0x00042;
+
+    private int nextAct;
+
     private String[][] data;
     private Selector s;
     @Override
@@ -34,6 +41,7 @@ public class HorarioActivity extends AppCompatActivity {
         setContentView( R.layout.activity_horario );
         Bundle b = getIntent().getExtras();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        nextAct = b.getInt( ACTIVIDAD_SIGUIENTE );
         int chose = b.getInt( DIRECCION );
         String file = ST_LLODIO_H_FILE;
         if( chose == LLODIO_ST )
@@ -66,5 +74,21 @@ public class HorarioActivity extends AppCompatActivity {
         } catch ( IOException e ) {
             e.printStackTrace();
         }
+    }
+
+    private void nextActivity(){
+        Intent i = null;
+        switch ( nextAct ){
+            case ZERAMIKA_2:
+                i = new Intent( this, Zeramika2Activity.class );
+        }
+
+        startActivity( i );
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        nextActivity();
     }
 }
