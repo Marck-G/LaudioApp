@@ -17,9 +17,10 @@ public class Foto_completa extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        Intent i = new Intent( this, TrenGeltokia1.class );
-        Intent i = new Intent( this, NavegacionActivity.class );
-        i.putExtra( NavegacionActivity.DESTINO, Places.getId( Places.TREN ) );
+        Intent i = new Intent( this, Zeramika1Activity.class );
+//        Intent i = new Intent( this, NavegacionActivity.class );
+//        i.putExtra( NavegacionActivity.DESTINO, Places.getId( Places.TREN ) );
+//        i.putExtra( HorarioActivity.DIRECCION, HorarioActivity.LLODIO_ST );
         startActivity( i );
         finish();
     }

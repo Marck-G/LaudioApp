@@ -47,7 +47,7 @@ public class Zeramika1Activity extends AppCompatActivity {
 //                animamos a Arantza
                 findViewById(R.id.arantza_14).animate()
                         .translationXBy(300)
-                        .setDuration(1000)
+                        .setDuration(600)
                         .start();
                 findViewById(R.id.zeramika1_pista).setVisibility(View.VISIBLE);
 //                escondemos a Arantza despues de la animacion
@@ -55,6 +55,7 @@ public class Zeramika1Activity extends AppCompatActivity {
                     @Override
                     public void run() {
                         findViewById( R.id.arantza_14 ).setVisibility( View.INVISIBLE );
+                        showTrena();
                     }
                 }, 1000);
             }
@@ -66,10 +67,19 @@ public class Zeramika1Activity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                findViewById( R.id.zeramika1_trena ).setVisibility( View.VISIBLE );
+                findViewById(R.id.zeramika1_trena).setVisibility(View.VISIBLE);
+                nextActHandler();
             }
         }, 10000);
 
+    }
+    private void nextActHandler(){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                nextActivity();
+            }
+        }, 3000 );
     }
     private void saveChanges(){
 //        creamos la instancia de la base de datos
@@ -84,12 +94,15 @@ public class Zeramika1Activity extends AppCompatActivity {
         saveChanges();
         Intent i = new Intent( this, HorarioActivity.class );
         i.putExtra( HorarioActivity.DIRECCION, HorarioActivity.LLODIO_ST );
+        i.putExtra( HorarioActivity.ACTIVIDAD_SIGUIENTE, HorarioActivity.ZERAMIKA_2 );
         startActivity( i );
+        finish();
     }
 
     @Override
     public void onBackPressed() {
         Intent i = new Intent( this, MainActivity.class );
         startActivity( i );
+        finish();
     }
 }

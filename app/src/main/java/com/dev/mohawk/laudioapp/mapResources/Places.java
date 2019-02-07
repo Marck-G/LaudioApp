@@ -100,7 +100,7 @@ public final class Places {
         return latCheck && longCheck;
     }
 
-    public static int getActivityId( LatLng place, int activityId ){
+    public static final int getActivityId( LatLng place, int activityId ){
         String id = getId( place ) + String.valueOf( activityId );
         return Integer.parseInt( id );
     }

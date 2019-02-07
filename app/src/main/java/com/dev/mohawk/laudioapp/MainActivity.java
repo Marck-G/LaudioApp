@@ -266,21 +266,29 @@ public class MainActivity extends AppCompatActivity {
 //    continuamos desde el último punto guardado
     private void continuar(){
         int idLastAct = manager.getLastActivity();
+        Places.setContext( this );
+        Log.e( "LAST ACT", idLastAct + " = " + Places.getName( manager.getLastPoint() ) );
         // TODO: switch con el id y por cada, un intent
         Intent intent = null;
         switch ( idLastAct ){
             case 10:
                 intent = new Intent( this, Conver_inicial.class );
+                break;
             case 11:
                 intent = new Intent( this, Foto_completa.class );
-            case 41:
+                break;
+            case 51:
                 intent = new Intent( this, Zeramika1Activity.class );
-            case 42:
+                break;
+            case 52:
                 intent = new Intent( this, Zeramika2Activity.class );
+                break;
         }
         if ( intent != null ){
             startActivity( intent );
             finish();
+        } else{
+            Log.e( "INTENT_CONT", "Empty intent" );
         }
     }
 
