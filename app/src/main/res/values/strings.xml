@@ -29,5 +29,10 @@
     <string name="style_url">mapbox://styles/dev-marck/cjps04qzd2r4k2sjjpnzyu0dx</string>
     <string name="main_reiniciar">berrabiarazi</string>
     <string name="h_last_update">Ultima actualizacion: %s</string>
+    <string name="arantza14_1">so fin ari zarete orain arte...baina ea hurrengo pista asmatzeko adorerik duzuen...; Begiratu arretaz argazkiak eta adi hurrengoari...</string>
+    <string name="arantza14_pista">“Elementu hauek herriko lantegi batean egiten ziren. Gaur egun ez da
+lantegia, baina bere garaian erabilitako tximinia handi bat zutik jarraitzen du.
+Lantegi honetara heltzeko 2. ondarea erabili beharko duzue...arin ibili, bestela
+aurkitzeko aukera galduko duzue”</string>
 
 </resources>

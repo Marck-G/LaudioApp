@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorMarkerName">#000000</color>
-    <color name="colorSplash">#000000</color>
-    <color name="negro">#000000</color>
+    <color name="colorSplash">#010101</color>
+    <color name="negro">#333333</color>
+    <color name="verde1">#B1F2C9</color>
 </resources>
