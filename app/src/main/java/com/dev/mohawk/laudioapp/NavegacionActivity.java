@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.webkit.PermissionRequest;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class NavegacionActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         Mapbox.getInstance( this, getString( R.string.mapbox_key ) );
         setContentView( R.layout.activity_navegacion );
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mapa = findViewById( R.id.n_map );
         mapa.onCreate( savedInstanceState );
 //        guardaremos el id del destino
@@ -58,7 +60,7 @@ public class NavegacionActivity extends AppCompatActivity {
 
                 CameraPosition def = new CameraPosition.Builder()
                         .target( Places.getPlace( destino ) )
-                        .zoom( 16 )
+                        .zoom( 18 )
                         .tilt( 58 )
                         .build();
                 mapboxMap.setStyle( new Style.Builder().fromUrl( getString( R.string.style_url ) ),
