@@ -273,6 +273,10 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent( this, Conver_inicial.class );
             case 11:
                 intent = new Intent( this, Foto_completa.class );
+            case 41:
+                intent = new Intent( this, Zeramika1Activity.class );
+            case 42:
+                intent = new Intent( this, Zeramika2Activity.class );
         }
         if ( intent != null ){
             startActivity( intent );
