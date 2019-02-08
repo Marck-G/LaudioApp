@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.webkit.PermissionRequest;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dev.mohawk.laudioapp.mapResources.Places;
@@ -36,6 +37,7 @@ public class NavegacionActivity extends AppCompatActivity {
     public static final String DESTINO = "nav_dst";
     public static final String ACTIVIDAD = "act";
     public static final int ACTV2 =  0x0002;
+    public static final int TRENGL3 = 0x003;
 
 
     private MapView mapa;
@@ -49,9 +51,12 @@ public class NavegacionActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mapa = findViewById( R.id.n_map );
         mapa.onCreate( savedInstanceState );
+        actividadSiguiente = getIntent().getExtras().getInt(ACTIVIDAD);
 //        guardaremos el id del destino
         final int destino;
         destino = getIntent().getExtras().getInt( DESTINO );
+        Places.setContext( this );
+        ( (TextView)findViewById( R.id.n_dest ) ).setText( Places.getName( Places.getPlace( destino )) );
         mapa.getMapAsync( new OnMapReadyCallback() {
             @Override
             public void onMapReady( @NonNull final MapboxMap mapboxMap ) {
@@ -106,7 +111,6 @@ public class NavegacionActivity extends AppCompatActivity {
                             LatLng pos = new LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
                                     mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
                             if ( pos.equals( Places.getPlace( destino ) ) ){
-
                                 starActivity();
                             }
                         }
@@ -120,6 +124,14 @@ public class NavegacionActivity extends AppCompatActivity {
 
     public void starActivity(){
         Intent i = null;
+        switch (actividadSiguiente){
+            case TRENGL3:
+                i = new Intent(this,TrenGeltokia3.class);
+                break;
+        }
+        startActivity(i);
+        finish();
+
 
     }
 
