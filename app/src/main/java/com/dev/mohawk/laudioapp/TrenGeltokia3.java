@@ -1,6 +1,7 @@
 package com.dev.mohawk.laudioapp;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
@@ -62,5 +63,9 @@ public class TrenGeltokia3 extends AppCompatActivity {
         },4000);
     }
 
-
+    public void continuar(View view){
+        Intent intento = new Intent(this,TrenGeltokia4.class);
+        startActivity(intento);
+        finish();
+    }
 }
