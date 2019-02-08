@@ -25,7 +25,7 @@ public class TrenGeltokia4 extends AppCompatActivity {
 //        creamos la instancia de la base de datos
         DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
 //        construimos el id
-        String id = Places.getId( Places.TREN ) + "2" ;
+        String id = Places.getId( Places.TREN ) + "4" ;
 //        actualizamos la base de datos
         m.updateLastPoint( Integer.parseInt( id ) );
     }
@@ -35,4 +35,5 @@ public class TrenGeltokia4 extends AppCompatActivity {
         startActivity( new Intent( this, MainActivity.class ) );
         finish();
     }
+
 }
