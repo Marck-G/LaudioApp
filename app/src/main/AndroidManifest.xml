@@ -62,6 +62,8 @@
         <activity android:name=".NavegacionActivity" />
         <activity android:name=".HorarioActivity" />
         <activity android:name=".TrenGeltokia3" />
+        <activity android:name=".Zeramika1Activity" />
+        <activity android:name=".Zeramika2Activity" />
         <activity android:name=".TrenGeltokia4"></activity>
     </application>
 
