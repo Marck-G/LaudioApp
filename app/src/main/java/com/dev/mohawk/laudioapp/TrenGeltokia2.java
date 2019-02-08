@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dev.mohawk.laudioapp.mapResources.Places;
+
 public class TrenGeltokia2 extends AppCompatActivity {
 
     private TextView tv,continuar;
@@ -61,7 +63,9 @@ public class TrenGeltokia2 extends AppCompatActivity {
 
     public void continuar(View view){
 
-        Intent intento = new Intent(getApplicationContext(),TrenGeltokia3.class);
+        Intent intento = new Intent(getApplicationContext(),NavegacionActivity.class);
+        intento.putExtra(NavegacionActivity.DESTINO, Places.getId(Places.TREN));
+        intento.putExtra(NavegacionActivity.ACTIVIDAD,NavegacionActivity.TRENGL3);
         startActivity(intento);
         finish();
     }
