@@ -1,10 +1,12 @@
 package com.dev.mohawk.laudioapp;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -23,11 +25,15 @@ import static com.dev.mohawk.laudioapp.MainActivity.LLODIO_ST_H_FILE;
 import static com.dev.mohawk.laudioapp.MainActivity.ST_LLODIO_H_FILE;
 
 public class HorarioActivity extends AppCompatActivity {
-    public static final int LLODIO_ST = 0x00f2;
     public static final String DIRECCION = "DIRECCION";
+    public static final int LLODIO_ST = 0x00f2;
     public static final int ST_LLODIO = 0x00f1;
+    // TODO: crear una constante int por cada actividad que se necesite
+    public static final String SIG_ACT = "act_sig";
+    public static final int ZERAMIKA2 = 0x000f2;
     private String[][] data;
     private Selector s;
+    private int sgAct;
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
@@ -36,6 +42,8 @@ public class HorarioActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         int chose = b.getInt( DIRECCION );
         String file = ST_LLODIO_H_FILE;
+//        recogemos la actividad siguiente
+        sgAct = b.getInt( SIG_ACT );
         if( chose == LLODIO_ST )
             file = LLODIO_ST_H_FILE;
         try {
@@ -66,5 +74,21 @@ public class HorarioActivity extends AppCompatActivity {
         } catch ( IOException e ) {
             e.printStackTrace();
         }
+    }
+
+    // TODO: crear un case por cada constante
+    private void startAct(){
+        Intent i = null;
+        switch ( sgAct ){
+            case ZERAMIKA2:
+                i = new Intent( this, Zeramika2Activity.class );
+                break;
+        }
+        startActivity(i);
+        finish();
+    }
+
+    public void continuar(View view) {
+        startAct();
     }
 }
