@@ -36,6 +36,7 @@ public class NavegacionActivity extends AppCompatActivity {
     public static final String DESTINO = "nav_dst";
     public static final String ACTIVIDAD = "act";
     public static final int ACTV2 =  0x0002;
+    public static final int TRENGL3 = 0x003;
 
 
     private MapView mapa;
@@ -49,6 +50,7 @@ public class NavegacionActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mapa = findViewById( R.id.n_map );
         mapa.onCreate( savedInstanceState );
+        actividadSiguiente = getIntent().getExtras().getInt(ACTIVIDAD);
 //        guardaremos el id del destino
         final int destino;
         destino = getIntent().getExtras().getInt( DESTINO );
@@ -120,6 +122,14 @@ public class NavegacionActivity extends AppCompatActivity {
 
     public void starActivity(){
         Intent i = null;
+        switch (actividadSiguiente){
+            case TRENGL3:
+                i = new Intent(this,TrenGeltokia3.class);
+                break;
+        }
+        startActivity(i);
+        finish();
+
 
     }
 
