@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.webkit.PermissionRequest;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dev.mohawk.laudioapp.mapResources.Places;
@@ -54,6 +55,8 @@ public class NavegacionActivity extends AppCompatActivity {
 //        guardaremos el id del destino
         final int destino;
         destino = getIntent().getExtras().getInt( DESTINO );
+        Places.setContext( this );
+        ( (TextView)findViewById( R.id.n_dest ) ).setText( Places.getName( Places.getPlace( destino )) );
         mapa.getMapAsync( new OnMapReadyCallback() {
             @Override
             public void onMapReady( @NonNull final MapboxMap mapboxMap ) {
@@ -108,7 +111,6 @@ public class NavegacionActivity extends AppCompatActivity {
                             LatLng pos = new LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
                                     mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
                             if ( pos.equals( Places.getPlace( destino ) ) ){
-
                                 starActivity();
                             }
                         }
