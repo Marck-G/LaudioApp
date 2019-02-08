@@ -40,6 +40,7 @@ public class TrenGeltokia2 extends AppCompatActivity {
                 btnjarraitu.setVisibility(View.VISIBLE);
                 continuar.setText(R.string.jarraitu);
             }
+
         },4000);
 
         btnjarraitu.setOnTouchListener(new View.OnTouchListener() {
