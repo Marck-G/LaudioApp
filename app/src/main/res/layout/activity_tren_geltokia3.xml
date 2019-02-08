@@ -40,7 +40,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_btn22"
-        android:onClick="elegirMal"/>
+        android:onClick="elegirMal1"/>
     <TextView
         android:id="@+id/aukera2"
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_below="@id/opcion2"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_btn22"
-        android:onClick="elegirMal"/>
+        android:onClick="elegirMal2"/>
     <TextView
         android:id="@+id/aukera3"
         android:layout_width="wrap_content"
