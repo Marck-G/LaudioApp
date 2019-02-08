@@ -57,16 +57,18 @@ public class Zeramika1Activity extends AppCompatActivity {
                         findViewById( R.id.arantza_14 ).setVisibility( View.INVISIBLE );
                     }
                 }, 1000);
+                showNav();
             }
         }, 4000);
     }
 
-    private void showTrena(){
+    private void showNav(){
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 findViewById( R.id.zeramika1_trena ).setVisibility( View.VISIBLE );
+                nextActivity();
             }
         }, 10000);
 
