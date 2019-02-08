@@ -48,9 +48,9 @@ public class TrenGeltokia3 extends AppCompatActivity {
         },3000);
     }
 
-    public void elegirMal(View view){
+    public void elegirMal1(View view){
 
-        aukera1.setImageResource(R.drawable.ic_btnwrong);
+        aukera2.setImageResource(R.drawable.ic_btnwrong);
         txomin.setText(R.string.TrenGeltokia3_okerra);
         persona.setImageResource(R.drawable.txomin);
         new Handler().postDelayed(new Runnable() {
@@ -58,7 +58,21 @@ public class TrenGeltokia3 extends AppCompatActivity {
 
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             public void run() {
-                aukera1.setImageResource(R.drawable.ic_btn22);
+                aukera2.setImageResource(R.drawable.ic_btn22);
+            }
+        },4000);
+    }
+    public void elegirMal2(View view){
+
+        aukera3.setImageResource(R.drawable.ic_btnwrong);
+        txomin.setText(R.string.TrenGeltokia3_okerra);
+        persona.setImageResource(R.drawable.txomin);
+        new Handler().postDelayed(new Runnable() {
+
+
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            public void run() {
+                aukera3.setImageResource(R.drawable.ic_btn22);
             }
         },4000);
     }
