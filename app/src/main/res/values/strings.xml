@@ -25,6 +25,8 @@
     <string name="TrenGeltokia3_aukera1">Jauregiar dorretxea</string>
     <string name="TrenGeltokia3_aukera2">Gaztelua</string>
     <string name="TrenGeltokia3_aukera3">Kartzela</string>
+    <string name="TrenGeltokia3_zuzena">Oso ondo lagunak!! Segi horrela!!</string>
+    <string name="TrenGeltokia3_okerra">Uff!! Gutxigaitik ez duzue erantzun</string>
     <string name="mapbox_key">pk.eyJ1IjoiZGV2LW1hcmNrIiwiYSI6ImNqcHMwM3pieDAwYWQ0OG8xNjV1b3VrNXgifQ.kGQTu-vJ6Wtlfzc5GWghhA</string>
     <string name="style_url">mapbox://styles/dev-marck/cjps04qzd2r4k2sjjpnzyu0dx</string>
     <string name="main_reiniciar">berrabiarazi</string>
