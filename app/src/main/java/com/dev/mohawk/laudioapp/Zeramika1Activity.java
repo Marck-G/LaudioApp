@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -74,10 +75,12 @@ public class Zeramika1Activity extends AppCompatActivity {
 
     }
     private void saveChanges(){
+        Places.setContext(this);
 //        creamos la instancia de la base de datos
         DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
 //        construimos el id
         String id = Places.getId( Places.ZERAMIKA ) + "1" ;
+        Log.e( "DB", m.toString() );
 //        actualizamos la base de datos
         m.updateLastPoint( Integer.parseInt( id ) );
     }

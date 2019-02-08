@@ -16,12 +16,14 @@ public class TrenGeltokia4 extends AppCompatActivity {
     }
 
     public void continuar4(View view){
+        saveChanges();
         Intent intento = new Intent(this,Zeramika1Activity.class);
         startActivity(intento);
         finish();
     }
 
     private void saveChanges(){
+        Places.setContext(this);
 //        creamos la instancia de la base de datos
         DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
 //        construimos el id

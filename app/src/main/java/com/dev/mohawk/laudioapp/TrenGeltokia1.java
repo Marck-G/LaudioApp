@@ -45,6 +45,7 @@ public class TrenGeltokia1 extends AppCompatActivity {
     }
 
     private void saveChanges(){
+        Places.setContext(this);
 //        creamos la instancia de la base de datos
         DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
 //        construimos el id

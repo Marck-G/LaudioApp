@@ -37,11 +37,7 @@
             android:name=".LevelChooser"
             android:label="@string/title_activity_level_chooser" />
         <activity android:name=".TrenGeltokia1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Conver_inicial" />
         <activity android:name=".Foto_completa" />
@@ -62,7 +58,13 @@
         <activity android:name=".NavegacionActivity" />
         <activity android:name=".HorarioActivity" />
         <activity android:name=".TrenGeltokia3" />
-        <activity android:name=".Zeramika1Activity" />
+        <activity android:name=".Zeramika1Activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Zeramika2Activity" />
         <activity android:name=".TrenGeltokia4"></activity>
     </application>

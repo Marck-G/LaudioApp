@@ -81,12 +81,14 @@ public class TrenGeltokia3 extends AppCompatActivity {
     }
 
     public void continuar(View view){
+        saveChanges();
         Intent intento = new Intent(this,TrenGeltokia4.class);
         startActivity(intento);
         finish();
     }
 
     private void saveChanges(){
+        Places.setContext(this);
 //        creamos la instancia de la base de datos
         DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
 //        construimos el id
