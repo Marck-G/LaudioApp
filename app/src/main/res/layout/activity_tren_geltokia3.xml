@@ -123,7 +123,8 @@
         android:layout_toEndOf="@+id/aukera2"
         android:src="@drawable/ic_btn2"
         android:visibility="invisible"
-        android:layout_toRightOf="@+id/aukera2" />
+        android:layout_toRightOf="@+id/aukera2"
+        android:onClick="continuar"/>
 
     <TextView
         android:id="@+id/jarraituText"
@@ -138,5 +139,4 @@
         android:textStyle="bold"
         android:visibility="invisible"
         android:layout_toRightOf="@+id/bocata" />
-
 </RelativeLayout>
