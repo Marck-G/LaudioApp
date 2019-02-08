@@ -127,6 +127,11 @@ public class NavegacionActivity extends AppCompatActivity {
             case TRENGL3:
                 i = new Intent(this,TrenGeltokia3.class);
                 break;
+            case ACTV2:
+                i = new Intent( this, HorarioActivity.class );
+                i.putExtra( HorarioActivity.DIRECCION, HorarioActivity.LLODIO_ST );
+                i.putExtra( HorarioActivity.SIG_ACT, HorarioActivity.ZERAMIKA2 );
+                break;
         }
         startActivity(i);
         finish();
