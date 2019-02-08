@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.webkit.PermissionRequest;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dev.mohawk.laudioapp.mapResources.Places;
@@ -35,7 +36,8 @@ public class NavegacionActivity extends AppCompatActivity {
 
     public static final String DESTINO = "nav_dst";
     public static final String ACTIVIDAD = "act";
-    public static final int ZERAMIKA2 =  0x0002;
+    public static final int ACTV2 =  0x0002;
+    public static final int TRENGL3 = 0x003;
 
 
     private MapView mapa;
@@ -49,9 +51,12 @@ public class NavegacionActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mapa = findViewById( R.id.n_map );
         mapa.onCreate( savedInstanceState );
+        actividadSiguiente = getIntent().getExtras().getInt(ACTIVIDAD);
 //        guardaremos el id del destino
         final int destino;
         destino = getIntent().getExtras().getInt( DESTINO );
+        Places.setContext( this );
+        ( (TextView)findViewById( R.id.n_dest ) ).setText( Places.getName( Places.getPlace( destino )) );
         mapa.getMapAsync( new OnMapReadyCallback() {
             @Override
             public void onMapReady( @NonNull final MapboxMap mapboxMap ) {
@@ -98,20 +103,18 @@ public class NavegacionActivity extends AppCompatActivity {
                 mapboxMap.getLocationComponent().setLocationComponentEnabled( true );
                 mapboxMap.getLocationComponent().setCameraMode( CameraMode.TRACKING );
                 mapboxMap.getLocationComponent().setRenderMode( RenderMode.COMPASS );
-                mapboxMap.getLocationComponent().addOnLocationStaleListener( new OnLocationStaleListener() {
-                    @Override
-                    public void onStaleStateChange( boolean isStale ) {
-                        if( isStale ){
-                            @SuppressLint( "MissingPermission" )
-                            LatLng pos = new LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
-                                    mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
-                            if ( pos.equals( Places.getPlace( destino ) ) ){
-
-                                starActivity();
-                            }
-                        }
+                LatLng posAct = new LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
+                        mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
+                while( !Places.equals( Places.getPlace( destino ), posAct ) ){
+                    posAct = new  LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
+                            mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
+                    try {
+                        Thread.sleep( 300 );
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                } );
+                }
+                starActivity();
             }
         } );
 
@@ -120,9 +123,19 @@ public class NavegacionActivity extends AppCompatActivity {
 
     public void starActivity(){
         Intent i = null;
-        switch ( actividadSiguiente ){
-            case ZERAMIKA2: i = new Intent( this, Zeramika2Activity.class );
+        switch (actividadSiguiente){
+            case TRENGL3:
+                i = new Intent(this,TrenGeltokia3.class);
+                break;
+            case ACTV2:
+                i = new Intent( this, HorarioActivity.class );
+                i.putExtra( HorarioActivity.DIRECCION, HorarioActivity.LLODIO_ST );
+                i.putExtra( HorarioActivity.SIG_ACT, HorarioActivity.ZERAMIKA2 );
+                break;
         }
+        startActivity(i);
+        finish();
+
 
     }
 
@@ -160,5 +173,10 @@ public class NavegacionActivity extends AppCompatActivity {
     public void onSaveInstanceState( Bundle outState, PersistableBundle outPersistentState ) {
         super.onSaveInstanceState( outState, outPersistentState );
         mapa.onSaveInstanceState( outState );
+    }
+
+    @Override
+    public void onBackPressed() {
+        starActivity();
     }
 }

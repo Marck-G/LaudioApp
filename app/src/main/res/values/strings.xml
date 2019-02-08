@@ -25,6 +25,9 @@
     <string name="TrenGeltokia3_aukera1">Jauregiar dorretxea</string>
     <string name="TrenGeltokia3_aukera2">Gaztelua</string>
     <string name="TrenGeltokia3_aukera3">Kartzela</string>
+    <string name="TrenGeltokia3_zuzena">Oso ondo lagunak!! Segi horrela!!</string>
+    <string name="TrenGeltokia3_okerra">Uff!! Gutxigaitik ez duzue erantzun</string>
+    <string name="TrenGeltokia4_info">Tren geltoki hau 1965ean estreinatu zen. Bizkaian eta Araban, 20. eta 30. hamarkadetan eraikitako tren geltokien artean salbuespena dugu hau, herriko inspirazioko neoeuskal arkitekturaren kontrako eraikina delako eta Jauregi dorretxea islatzen duelako.</string>
     <string name="mapbox_key">pk.eyJ1IjoiZGV2LW1hcmNrIiwiYSI6ImNqcHMwM3pieDAwYWQ0OG8xNjV1b3VrNXgifQ.kGQTu-vJ6Wtlfzc5GWghhA</string>
     <string name="style_url">mapbox://styles/dev-marck/cjps04qzd2r4k2sjjpnzyu0dx</string>
     <string name="main_reiniciar">berrabiarazi</string>
@@ -35,5 +38,21 @@ lantegia, baina bere garaian erabilitako tximinia handi bat zutik jarraitzen du.
 Lantegi honetara heltzeko 2. ondarea erabili beharko duzue...arin ibili, bestela
 aurkitzeko aukera galduko duzue”</string>
     <string name="zeramika1_trena">Trena!!</string>
+    <string name="juFin">Argazkia  sakatuz  gero,  GPSa  aktibatuko  zaizue  eta  bertan adieraziko zaizue ze bide hartu beharko duzuen 1. ondarera heltzeko.</string>
+    <string name="jar">JARRAITU</string>
+    <string name="respMal1_p2">EGURREZ</string>
+    <string name="respMal2_p2">BUZTINEZ</string>
+    <string name="respBien_p2">BURDINEZ</string>
+    <string name="pregunta2">“Eliz ataria zerez eginda dago?”</string>
+    <string name="juego2_Txomin">Beno, 1. ondarearen aurrean zaudete, Lamuzako Elizaren aurrean hain zuzen ere. Baina eliza honek badu ezaugarri berezi bat… </string>
+    <string name="textoMal2">Ai ene! Erantzun okerra sakatu duzue! Saiatu berriro ere!</string>
+    <string name="textoBien2">Primeran! Ikasle apartak zarete!</string>
+    <string name="inicioPuzle">Oso  ikerlari  onak  zarete!  Lehenengo  ondarea  arin  aurkitu duzue… ea hurrengoarekin zer gertatzen den… </string>
+    <string name="textoPuzle">Puzzle hau ondo osatu beharko duzue eta hurrengo ondarera bideratuko zaituztete</string>
+    <string name="txomin13">Oraingo honetan urrun joan gara gero! Trena eta guzti hartu
+behar! Esperientzia polita, ezta?;Ea ba, jarrai dezagun ikerketa honekin.;
+Oraingo honetan hizki zopa bat agertuko zaizue froga moduan, eta nik esango
+    dizkizuedan hitzak aurkitu beharko dituzue.; Prest? Ba adi egon eta aurrera!
+Hitzak hauek dira:</string>
 
 </resources>

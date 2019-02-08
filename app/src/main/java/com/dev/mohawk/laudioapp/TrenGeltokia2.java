@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
+
 public class TrenGeltokia2 extends AppCompatActivity {
 
     private TextView tv,continuar;
@@ -38,6 +41,7 @@ public class TrenGeltokia2 extends AppCompatActivity {
                 btnjarraitu.setVisibility(View.VISIBLE);
                 continuar.setText(R.string.jarraitu);
             }
+
         },4000);
 
         btnjarraitu.setOnTouchListener(new View.OnTouchListener() {
@@ -61,8 +65,26 @@ public class TrenGeltokia2 extends AppCompatActivity {
 
     public void continuar(View view){
 
-        Intent intento = new Intent(getApplicationContext(),TrenGeltokia3.class);
+        Intent intento = new Intent(getApplicationContext(),NavegacionActivity.class);
+        intento.putExtra(NavegacionActivity.DESTINO, Places.getId(Places.TREN));
+        intento.putExtra(NavegacionActivity.ACTIVIDAD,NavegacionActivity.TRENGL3);
         startActivity(intento);
+        finish();
+    }
+
+    private void saveChanges(){
+        Places.setContext(this);
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.TREN ) + "2" ;
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity( new Intent( this, MainActivity.class ) );
         finish();
     }
 }

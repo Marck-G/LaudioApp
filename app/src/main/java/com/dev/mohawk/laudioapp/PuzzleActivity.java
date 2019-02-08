@@ -364,4 +364,9 @@ public class PuzzleActivity extends AppCompatActivity {
         return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
                 matrix, true);
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity( new Intent( this, MainActivity.class ) );
+    }
 }

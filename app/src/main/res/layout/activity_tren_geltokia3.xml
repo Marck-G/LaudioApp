@@ -1,10 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TrenGeltokia3"
+    android:padding="20dp"
     android:background="@drawable/background_img_piedra">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/opcion1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/ic_btn22"
+        android:onClick="elegirBien"/>
+
+    <TextView
+        android:id="@+id/aukera1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="38dp"
+        android:text="@string/TrenGeltokia3_aukera1"
+        android:textSize="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/blanco"
+        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/opcion2"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/opcion1"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_btn22"
+        android:onClick="elegirMal1"/>
+    <TextView
+        android:id="@+id/aukera2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="113dp"
+        android:text="@string/TrenGeltokia3_aukera2"
+        android:textSize="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/blanco"
+        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/opcion3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/opcion2"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_btn22"
+        android:onClick="elegirMal2"/>
+    <TextView
+        android:id="@+id/aukera3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="190dp"
+        android:text="@string/TrenGeltokia3_aukera3"
+        android:textSize="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_alignParentLeft="true"
+        android:textStyle="bold"
+        android:textColor="@color/blanco"/>
+
+    <ImageView
+        android:id="@+id/bocata"
+        android:layout_width="285dp"
+        android:layout_height="257dp"
+        android:layout_alignBottom="@+id/preguntaTren"
+        android:layout_alignEnd="@+id/preguntaTren"
+        android:src="@drawable/ic_bocadillo_trengeltokia"
+        android:layout_alignRight="@+id/preguntaTren" />
+
+    <TextView
+        android:id="@+id/preguntaTren"
+        android:layout_width="220dp"
+        android:layout_height="205dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="164dp"
+        android:layout_marginStart="45dp"
+        android:text="@string/TrenGeltokia3_galdera"
+        android:textSize="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="45dp"
+        android:textColor="@color/blanco"/>
+
+    <ImageView
+        android:id="@+id/persona"
+        android:layout_width="222dp"
+        android:layout_height="204dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/arantza"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
+
+    <ImageView
+        android:id="@+id/jarraitu"
+        android:layout_width="142dp"
+        android:layout_height="51dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/aukera2"
+        android:src="@drawable/ic_btn2"
+        android:visibility="invisible"
+        android:layout_toRightOf="@+id/aukera2"
+        android:onClick="continuar"/>
+
+    <TextView
+        android:id="@+id/jarraituText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_toEndOf="@+id/bocata"
+        android:text="@string/jarraitu"
+        android:textColor="@color/blanco"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        android:layout_toRightOf="@+id/bocata" />
+</RelativeLayout>

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -27,23 +28,22 @@ public class HorarioActivity extends AppCompatActivity {
     public static final String DIRECCION = "DIRECCION";
     public static final int LLODIO_ST = 0x00f2;
     public static final int ST_LLODIO = 0x00f1;
-
-    public static final String  ACTIVIDAD_SIGUIENTE = "act_sg";
-    public static final int     ZERAMIKA_2 = 0x00042;
-
-    private int nextAct;
-
+    // TODO: crear una constante int por cada actividad que se necesite
+    public static final String SIG_ACT = "act_sig";
+    public static final int ZERAMIKA2 = 0x000f2;
     private String[][] data;
     private Selector s;
+    private int sgAct;
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_horario );
         Bundle b = getIntent().getExtras();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        nextAct = b.getInt( ACTIVIDAD_SIGUIENTE );
         int chose = b.getInt( DIRECCION );
         String file = ST_LLODIO_H_FILE;
+//        recogemos la actividad siguiente
+        sgAct = b.getInt( SIG_ACT );
         if( chose == LLODIO_ST )
             file = LLODIO_ST_H_FILE;
         try {
@@ -76,19 +76,19 @@ public class HorarioActivity extends AppCompatActivity {
         }
     }
 
-    private void nextActivity(){
+    // TODO: crear un case por cada constante
+    private void startAct(){
         Intent i = null;
-        switch ( nextAct ){
-            case ZERAMIKA_2:
+        switch ( sgAct ){
+            case ZERAMIKA2:
                 i = new Intent( this, Zeramika2Activity.class );
+                break;
         }
-
-        startActivity( i );
+        startActivity(i);
         finish();
     }
 
-    @Override
-    public void onBackPressed() {
-        nextActivity();
+    public void continuar(View view) {
+        startAct();
     }
 }
