@@ -26,7 +26,9 @@ public class Zeramika2Activity extends AppCompatActivity {
 
     private void nextActivity(){
         saveChanges();
-        Intent i = new Intent( this, Zeramika2Activity.class );
+        Intent i = new Intent( this, NavegacionActivity.class );
+        i.putExtra( NavegacionActivity.ACTIVIDAD, NavegacionActivity.ACTV2 );
+        i.putExtra( NavegacionActivity.DESTINO, Places.getId( Places.TREN ) );
         startActivity( i );
     }
 

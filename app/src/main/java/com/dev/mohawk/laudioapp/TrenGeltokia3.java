@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
+
 public class TrenGeltokia3 extends AppCompatActivity {
 
 
@@ -80,6 +83,21 @@ public class TrenGeltokia3 extends AppCompatActivity {
     public void continuar(View view){
         Intent intento = new Intent(this,TrenGeltokia4.class);
         startActivity(intento);
+        finish();
+    }
+
+    private void saveChanges(){
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.TREN ) + "2" ;
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity( new Intent( this, MainActivity.class ) );
         finish();
     }
 }
