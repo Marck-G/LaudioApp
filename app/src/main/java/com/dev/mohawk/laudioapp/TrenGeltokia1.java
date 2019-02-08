@@ -11,6 +11,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
+
 public class TrenGeltokia1 extends AppCompatActivity {
 
     private ImageView continuar;
@@ -40,10 +43,27 @@ public class TrenGeltokia1 extends AppCompatActivity {
         });
 
     }
+
+    private void saveChanges(){
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.TREN ) + "1" ;
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
     public void lanzarPuzzle(View view){
+        saveChanges();
         Intent intent = new Intent( getApplicationContext(), PuzzleActivity.class );
         intent.putExtra( "assetName", "tren.jpg" );
         startActivity( intent );
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity( new Intent( this, MainActivity.class ) );
         finish();
     }
 }
