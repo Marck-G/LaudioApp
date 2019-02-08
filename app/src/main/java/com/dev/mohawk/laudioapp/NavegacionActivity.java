@@ -174,4 +174,9 @@ public class NavegacionActivity extends AppCompatActivity {
         super.onSaveInstanceState( outState, outPersistentState );
         mapa.onSaveInstanceState( outState );
     }
+
+    @Override
+    public void onBackPressed() {
+        starActivity();
+    }
 }
