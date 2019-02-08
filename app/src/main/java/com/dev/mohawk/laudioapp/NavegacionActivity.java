@@ -103,19 +103,18 @@ public class NavegacionActivity extends AppCompatActivity {
                 mapboxMap.getLocationComponent().setLocationComponentEnabled( true );
                 mapboxMap.getLocationComponent().setCameraMode( CameraMode.TRACKING );
                 mapboxMap.getLocationComponent().setRenderMode( RenderMode.COMPASS );
-                mapboxMap.getLocationComponent().addOnLocationStaleListener( new OnLocationStaleListener() {
-                    @Override
-                    public void onStaleStateChange( boolean isStale ) {
-                        if( isStale ){
-                            @SuppressLint( "MissingPermission" )
-                            LatLng pos = new LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
-                                    mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
-                            if ( pos.equals( Places.getPlace( destino ) ) ){
-                                starActivity();
-                            }
-                        }
+                LatLng posAct = new LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
+                        mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
+                while( !Places.equals( Places.getPlace( destino ), posAct ) ){
+                    posAct = new  LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
+                            mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
+                    try {
+                        Thread.sleep( 300 );
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                } );
+                }
+                starActivity();
             }
         } );
 
