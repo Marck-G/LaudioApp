@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.dev.mohawk.laudioapp.database.DBManager;
@@ -20,6 +21,8 @@ public class Zeramika1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zeramika1);
+//        establecemos la vista a fullscreen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         imgs = findViewById( R.id.zeramika1_img );
         bocadillo = findViewById( R.id.zeramika1_bocadillo );
         imgs.setAlpha(0);

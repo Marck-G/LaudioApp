@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.dev.mohawk.laudioapp.database.DBManager;
 import com.dev.mohawk.laudioapp.mapResources.Places;
@@ -14,6 +15,8 @@ public class Zeramika2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zeramika2);
+//        establecemos la vista a fullscreen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         findViewById( R.id.zeramika2_btn_jar ).setOnClickListener(new View.OnClickListener() {
             @Override
