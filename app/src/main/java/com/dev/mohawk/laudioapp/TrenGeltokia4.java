@@ -15,6 +15,6 @@ public class TrenGeltokia4 extends AppCompatActivity {
     public void continuar4(View view){
         Intent intento = new Intent(this,Zeramika1Activity.class);
         startActivity(intento);
-
+        finish();
     }
 }
