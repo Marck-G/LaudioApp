@@ -60,7 +60,9 @@
         <activity android:name=".TrenGeltokia1" />
         <activity android:name=".TrenGeltokia2" />
         <activity android:name=".NavegacionActivity" />
-        <activity android:name=".HorarioActivity"></activity>
+        <activity android:name=".HorarioActivity" />
+        <activity android:name=".TrenGeltokia3"></activity>
+        <activity android:name=".HorarioActivity" />
     </application>
 
 </manifest>

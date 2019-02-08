@@ -375,10 +375,10 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat( "dd-MM-yyyy" );
 //        creamos las variables
         final RequestParams st_llodio = new RequestParams()
-                .put( RequestParams.HORA_DESTINO, "26" )
+                .put( RequestParams.HORA_DESTINO, "14" )
                 .put( RequestParams.DESTINO, "13106" ) // santa cruz
                 .put( RequestParams.ORIGEN, "13104" ) // llodio
-                .put( RequestParams.HORA_ORIGEN, "2" )
+                .put( RequestParams.HORA_ORIGEN, "7" )
                 .put( RequestParams.FECHA, RenfeRequest.formatDate( format.format( toDay ) ) );
 
         new Handler().postDelayed( new Runnable() {
@@ -402,10 +402,10 @@ public class MainActivity extends AppCompatActivity {
         },500 );
 
         final RequestParams llodio_st = new RequestParams()
-                .put( RequestParams.HORA_DESTINO, "26" )
+                .put( RequestParams.HORA_DESTINO, "14" )
                 .put( RequestParams.DESTINO, "13104" ) // santa cruz
                 .put( RequestParams.ORIGEN, "13106" ) // llodio
-                .put( RequestParams.HORA_ORIGEN, "2" )
+                .put( RequestParams.HORA_ORIGEN, "7" )
                 .put( RequestParams.FECHA, RenfeRequest.formatDate( format.format( toDay ) ) );
         new Handler().postDelayed( new Runnable() {
             @Override

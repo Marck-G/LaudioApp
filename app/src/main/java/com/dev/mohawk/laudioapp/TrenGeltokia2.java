@@ -61,7 +61,7 @@ public class TrenGeltokia2 extends AppCompatActivity {
 
     public void continuar(View view){
 
-        Intent intento = new Intent(getApplicationContext(),TrenGeltokia1.class);
+        Intent intento = new Intent(getApplicationContext(),TrenGeltokia3.class);
         startActivity(intento);
         finish();
     }

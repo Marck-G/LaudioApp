@@ -4,6 +4,14 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorMarkerName">#000000</color>
-    <color name="colorSplash">#000000</color>
-    <color name="negro">#000000</color>
+    <color name="colorSplash">#010101</color>
+    <color name="negro">#333333</color>
+    <color name="verde0">#57D084</color>
+    <color name="verde1">#B1F2C9</color>
+    <color name="verde2">#7FE2A4</color>
+    <color name="verde3">#38BB69</color>
+    <color name="verde4">#1BA950</color>
+    <color name="azul0">#5D84C5</color>
+    <color name="amarillo0">#FFCA6B</color>
+    <color name="blanco">#FFFFFF</color>
 </resources>
