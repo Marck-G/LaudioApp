@@ -81,7 +81,7 @@ public class HorarioActivity extends AppCompatActivity {
         Intent i = null;
         switch ( sgAct ){
             case ZERAMIKA2:
-                i = new Intent( this, Zeramika2Activity.class );
+                i = new Intent( this, Zeramika3Activity.class );
                 break;
         }
         startActivity(i);

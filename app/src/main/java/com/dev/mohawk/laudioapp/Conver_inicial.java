@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.dev.mohawk.laudioapp.R;
 import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
 
 public class Conver_inicial extends AppCompatActivity {
 
@@ -67,11 +68,13 @@ public class Conver_inicial extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                       Intent intento=new Intent(Conver_inicial.this,Foto_completa.class);
+                       Intent intento=new Intent(Conver_inicial.this, NavegacionActivity.class);
+                       intento.putExtra( NavegacionActivity.DESTINO, Places.getName( Places.ELIZA ));
+                       intento.putExtra( NavegacionActivity.ACTIVIDAD, NavegacionActivity.JUEGO2 );
                        startActivity(intento);
                        finish();
                         DBManager manager = new DBManager( Conver_inicial.this , "activities", null, 1 );
-                        manager.updateLastPoint( 11 );
+                        manager.updateLastPoint( 10 );
                     }
                 },3500);
 

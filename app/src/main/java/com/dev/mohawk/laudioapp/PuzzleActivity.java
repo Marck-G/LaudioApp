@@ -298,6 +298,7 @@ public class PuzzleActivity extends AppCompatActivity {
                     // AQUI VA EL INTENT DE LA NUEVA ACTIVIDAD
                     Intent intent = new Intent( getApplicationContext(), TrenGeltokia2.class );
                     startActivity( intent );
+                    finish();
                 }
             },2000);
         }

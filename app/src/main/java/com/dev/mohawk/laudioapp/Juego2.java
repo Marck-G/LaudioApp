@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
+
 public class Juego2 extends AppCompatActivity {
 
     private ImageView bot1_p2,bot2_p2,bot3_p2;
@@ -55,7 +58,9 @@ public class Juego2 extends AppCompatActivity {
                     @Override
                     public void run() {
                         Intent intento=new Intent(Juego2.this,FinJuego2.class);
+                        saveChanges();
                         startActivity(intento);
+                        finish();
                     }
                 },4000);
 
@@ -76,5 +81,22 @@ public class Juego2 extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void saveChanges(){
+        Places.setContext(this);
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.ELIZA ) + "1" ;
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent( this, MainActivity.class );
+        startActivity( i );
+        finish();
     }
 }
