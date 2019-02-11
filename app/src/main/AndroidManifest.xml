@@ -50,17 +50,19 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".Splash" />
-        <activity android:name=".TrenGeltokia2" />
-        <activity android:name=".NavegacionActivity" />
-        <activity android:name=".HorarioActivity" />
-        <activity android:name=".TrenGeltokia3" />
-        <activity android:name=".Zeramika1Activity">
+        <activity android:name=".Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".TrenGeltokia2" />
+        <activity android:name=".NavegacionActivity" />
+        <activity android:name=".HorarioActivity" />
+        <activity android:name=".TrenGeltokia3" />
+        <activity android:name=".Zeramika1Activity">
+
         </activity>
         <activity android:name=".Zeramika2Activity" />
         <activity android:name=".TrenGeltokia4" />
