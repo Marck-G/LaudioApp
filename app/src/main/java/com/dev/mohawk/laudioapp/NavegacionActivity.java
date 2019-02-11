@@ -38,6 +38,7 @@ public class NavegacionActivity extends AppCompatActivity {
     public static final String ACTIVIDAD = "act";
     public static final int ACTV2 =  0x0002;
     public static final int TRENGL3 = 0x003;
+    public static final int JUEGO2 = 0x004;
 
 
     private MapView mapa;
@@ -126,6 +127,9 @@ public class NavegacionActivity extends AppCompatActivity {
         switch (actividadSiguiente){
             case TRENGL3:
                 i = new Intent(this,TrenGeltokia3.class);
+                break;
+            case JUEGO2:
+                i = new Intent( this, Juego2.class);
                 break;
             case ACTV2:
                 i = new Intent( this, HorarioActivity.class );

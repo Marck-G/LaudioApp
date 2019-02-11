@@ -14,8 +14,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Zeramika3Activity"></activity>
-        <!-- La actividad principal sólo se podrá ver en formato vertical -->
+        <activity android:name=".Zeramika4Activity"></activity>
+        <activity android:name=".Zeramika3Activity" /> <!-- La actividad principal sólo se podrá ver en formato vertical -->
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
@@ -35,7 +35,7 @@
         <activity
             android:name=".LevelChooser"
             android:label="@string/title_activity_level_chooser" />
-        <activity android:name=".TrenGeltokia1"></activity>
+        <activity android:name=".TrenGeltokia1" />
         <activity android:name=".Conver_inicial" />
         <activity android:name=".Foto_completa" />
         <activity android:name=".PuzzleActivity" />
