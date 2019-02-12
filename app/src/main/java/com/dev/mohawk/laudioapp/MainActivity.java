@@ -277,6 +277,24 @@ public class MainActivity extends AppCompatActivity {
             case 11:
                 intent = new Intent( this, Foto_completa.class );
                 break;
+            case 21:
+                intent = new Intent( this, Juego2.class );
+                break;
+            case 22:
+                intent = new Intent( this, FinJuego2.class );
+                break;
+            case 31:
+                intent = new Intent( this, TrenGeltokia1.class );
+                break;
+            case 32:
+                intent = new Intent( this, TrenGeltokia2.class );
+                break;
+            case 33:
+                intent = new Intent( this, TrenGeltokia3.class );
+                break;
+            case 34:
+                intent = new Intent( this, TrenGeltokia4.class );
+                break;
             case 51:
                 intent = new Intent( this, Zeramika1Activity.class );
                 break;

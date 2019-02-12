@@ -21,7 +21,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/puerta_iglesia" />
+        app:srcCompat="@drawable/puerta_iglesia"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="8dp" />
 
     <ImageView
         android:id="@+id/botJar"
@@ -32,7 +34,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.946"
-        app:srcCompat="@drawable/ic_btn22" />
+        app:srcCompat="@drawable/ic_btn22"
+        tools:ignore="VectorDrawableCompat" />
 
     <TextView
         android:id="@+id/textJ"

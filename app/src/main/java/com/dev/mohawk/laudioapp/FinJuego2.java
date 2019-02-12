@@ -29,10 +29,6 @@ public class FinJuego2 extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
-
     }
 
     private void saveChanges(){
