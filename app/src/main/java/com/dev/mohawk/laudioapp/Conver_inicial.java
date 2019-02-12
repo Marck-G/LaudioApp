@@ -69,7 +69,7 @@ public class Conver_inicial extends AppCompatActivity {
                     @Override
                     public void run() {
                        Intent intento=new Intent(Conver_inicial.this, NavegacionActivity.class);
-                       intento.putExtra( NavegacionActivity.DESTINO, Places.getName( Places.ELIZA ));
+                       intento.putExtra( NavegacionActivity.DESTINO, Places.getId( Places.ELIZA ));
                        intento.putExtra( NavegacionActivity.ACTIVIDAD, NavegacionActivity.JUEGO2 );
                        startActivity(intento);
                        finish();

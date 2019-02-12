@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.webkit.PermissionRequest;
 import android.widget.TextView;
@@ -56,6 +57,7 @@ public class NavegacionActivity extends AppCompatActivity {
 //        guardaremos el id del destino
         final int destino;
         destino = getIntent().getExtras().getInt( DESTINO );
+        Log.e("DESTINO", destino + "");
         Places.setContext( this );
         ( (TextView)findViewById( R.id.n_dest ) ).setText( Places.getName( Places.getPlace( destino )) );
         mapa.getMapAsync( new OnMapReadyCallback() {
