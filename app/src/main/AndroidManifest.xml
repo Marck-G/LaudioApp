@@ -39,6 +39,10 @@
         <activity android:name=".Conver_inicial" />
         <activity android:name=".Foto_completa" />
         <activity android:name=".PuzzleActivity" />
+        <activity android:name=".Juego2" />
+        <activity android:name=".FinJuego2" />
+        <activity android:name=".InicioPuzle" />
+        <activity android:name=".PostMapa" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
