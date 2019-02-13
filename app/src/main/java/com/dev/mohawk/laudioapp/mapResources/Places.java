@@ -89,10 +89,10 @@ public final class Places {
     }
 
     public static boolean equals( LatLng loc1, LatLng loc2 ){
-        double minlat = loc1.getLatitude() - 3;
-        double maxlat = loc1.getLatitude() + 3;
-        double minLong = loc1.getLongitude() - 3;
-        double maxLong = loc1.getLongitude() + 3;
+        double minlat = loc1.getLatitude() - 0.0003;
+        double maxlat = loc1.getLatitude() + 0.0003;
+        double minLong = loc1.getLongitude() - 0.0003;
+        double maxLong = loc1.getLongitude() + 0.0003;
         double lat = loc2.getLatitude();
         double lgn = loc2.getLongitude();
         boolean latCheck = lat >= minlat && lat <= maxlat;
