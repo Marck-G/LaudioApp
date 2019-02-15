@@ -42,6 +42,7 @@ public class Zeramika2Activity extends AppCompatActivity {
         i.putExtra( NavegacionActivity.ACTIVIDAD, NavegacionActivity.ACTV2 );
         i.putExtra( NavegacionActivity.DESTINO, Places.getId( Places.TREN ) );
         startActivity( i );
+        finish();
     }
 
     @Override
