@@ -23,34 +23,30 @@
 
     <ImageView
         android:id="@+id/botJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="247dp"
+        android:layout_height="105dp"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/ic_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885"
-        app:srcCompat="@drawable/ic_btn22" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textJ"
         android:layout_width="179dp"
         android:layout_height="37dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/permanent_marker_regular"
         android:text="@string/jar"
         android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="@color/negro"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.877" />
+        app:layout_constraintBottom_toBottomOf="@+id/botJ"
+        app:layout_constraintEnd_toEndOf="@+id/botJ"
+        app:layout_constraintStart_toStartOf="@+id/botJ"
+        app:layout_constraintTop_toTopOf="@+id/botJ"
+        app:layout_constraintVertical_bias="0.36" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -49,11 +49,18 @@ aurkitzeko aukera galduko duzue”</string>
     <string name="textoBien2">Primeran! Ikasle apartak zarete!</string>
     <string name="inicioPuzle">Oso  ikerlari  onak  zarete!  Lehenengo  ondarea  arin  aurkitu duzue… ea hurrengoarekin zer gertatzen den… </string>
     <string name="textoPuzle">Puzzle hau ondo osatu beharko duzue eta hurrengo ondarera bideratuko zaituztete</string>
-    <string name="txomin13">Oraingo honetan urrun joan gara gero! Trena eta guzti hartu
-behar! Esperientzia polita, ezta?;Ea ba, jarrai dezagun ikerketa honekin.;
-Oraingo honetan hizki zopa bat agertuko zaizue froga moduan, eta nik esango
-    dizkizuedan hitzak aurkitu beharko dituzue.; Prest? Ba adi egon eta aurrera!
-Hitzak hauek dira:</string>
+    <string name="txomin13">
+        Oraingo honetan urrun joan gara gero! Trena eta guzti hartu
+        behar! Esperientzia polita, ezta?;Ea ba, jarrai dezagun ikerketa honekin.;
+        Oraingo honetan hizki zopa bat agertuko zaizue froga moduan, eta nik esango
+        dizkizuedan hitzak aurkitu beharko dituzue.; Prest? Ba adi egon eta aurrera!
+        Hitzak hauek dira:
+    </string>
     <string name="arantza15">Aurrera neska-mutilak! Froga ondo gainditu duzue!</string>
+    <string name="txomin14">
+        Lantegi hau Laudioko Urkijo Markesak sortu zuen 1905ean.
+        Bertan, urte askotan zehar, teilak, adreilu erregogorrak eta zeramika produktuak
+        egiten ziren. Bere garaiko tximinia mantentzen da gaur egun.
+    </string>
 
 </resources>

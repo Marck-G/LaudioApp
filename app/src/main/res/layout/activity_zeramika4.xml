@@ -8,9 +8,9 @@
     tools:context=".Zeramika4Activity">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/zeramika4_1"
         android:layout_width="wrap_content"
         android:layout_height="178dp"
-        android:id="@+id/zeramika4_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -53,12 +53,80 @@
             app:layout_constraintTop_toTopOf="@+id/imageView12"
             app:layout_constraintVertical_bias="0.418" />
     </android.support.constraint.ConstraintLayout>
+
     <android.support.constraint.ConstraintLayout
+        android:visibility="invisible"
         android:id="@+id/zeramika4_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="418dp"
+        android:layout_height="642dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/zeramika4_img"
+            android:layout_width="wrap_content"
+            android:layout_height="482dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/zeramika_lantegia"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
 
+        <TextView
+            android:id="@+id/txomin14"
+            android:layout_width="402dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/permanent_marker_regular"
+            android:text="@string/txomin14"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/zeramika4_jarraitu"
+        android:layout_width="139dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/permanent_marker_regular"
+            android:text="@string/jarraitu"
+            android:textColor="@color/negro"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView13"
+            app:layout_constraintStart_toStartOf="@+id/imageView13"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.19" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
