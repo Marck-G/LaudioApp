@@ -131,11 +131,11 @@
         android:id="@+id/img_bocata"
         android:layout_width="211dp"
         android:layout_height="135dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginRight="124dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/arantza"
+        app:layout_constraintEnd_toEndOf="@+id/arantza"
         app:srcCompat="@drawable/ic_bocata2" />
 
     <TextView
