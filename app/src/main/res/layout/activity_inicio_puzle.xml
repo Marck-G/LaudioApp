@@ -12,84 +12,68 @@
         android:id="@+id/arantza"
         android:layout_width="205dp"
         android:layout_height="171dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/arantza"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
         android:id="@+id/bocataJuego2"
-        android:layout_width="390dp"
-        android:layout_height="158dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.855"
+        android:layout_width="277dp"
+        android:layout_height="174dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_bocatatx" />
 
     <TextView
         android:id="@+id/textoJuego2"
         android:layout_width="149dp"
         android:layout_height="129dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:text="@string/inicioPuzle"
         android:textAlignment="center"
+        android:textColor="@color/azul0"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174" />
+        app:layout_constraintBottom_toBottomOf="@+id/bocataJuego2"
+        app:layout_constraintEnd_toEndOf="@+id/bocataJuego2"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="@+id/bocataJuego2"
+        app:layout_constraintTop_toTopOf="@+id/bocataJuego2"
+        app:layout_constraintVertical_bias="0.58000004" />
 
 
     <!--  TEXTO DE PUZLE + BOTON JARRAITU  -->
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="535dp"
-        android:layout_height="69dp"
+        android:layout_width="wrap_content"
+        android:layout_height="156dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="124dp"
+        android:fontFamily="@font/permanent_marker_regular"
         android:text="@string/textoPuzle"
         android:textAlignment="center"
+        android:textColor="@color/amarillo0"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/botJarr"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656" />
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/botJarr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906"
         app:srcCompat="@drawable/ic_btn22" />
 
 
@@ -98,20 +82,19 @@
         android:layout_width="179dp"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/permanent_marker_regular"
         android:text="@string/jar"
         android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="@color/negro"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/botJarr"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881" />
+        app:layout_constraintTop_toTopOf="@+id/botJarr"
+        app:layout_constraintVertical_bias="0.36" />
 
 
 </android.support.constraint.ConstraintLayout>
