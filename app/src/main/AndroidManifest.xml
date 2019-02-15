@@ -14,7 +14,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Zeramika4Activity"></activity>
+        <activity android:name=".Katuxa1Activity"></activity>
+        <activity android:name=".Zeramika4Activity" />
         <activity android:name=".Zeramika3Activity" /> <!-- La actividad principal sólo se podrá ver en formato vertical -->
         <activity
             android:name=".MainActivity"
@@ -54,7 +55,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".Splash" >
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,9 +66,7 @@
         <activity android:name=".NavegacionActivity" />
         <activity android:name=".HorarioActivity" />
         <activity android:name=".TrenGeltokia3" />
-        <activity android:name=".Zeramika1Activity">
-
-        </activity>
+        <activity android:name=".Zeramika1Activity"></activity>
         <activity android:name=".Zeramika2Activity" />
         <activity android:name=".TrenGeltokia4" />
     </application>

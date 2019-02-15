@@ -24,6 +24,7 @@ public class Zeramika3Activity extends AppCompatActivity {
         txomin = findViewById( R.id.txomin13 );
         texts = getString( R.string.txomin13 ).split( ";" );
         txomin.setText( texts[0] );
+        nextDialog();
     }
 
     private void nextDialog(){
@@ -58,7 +59,9 @@ public class Zeramika3Activity extends AppCompatActivity {
 
     private void nextAct(){
         saveChanges();
-        Intent i = new Intent( );
+        Intent i = new Intent( this, Zeramika4Activity.class );
+        startActivity( i );
+        finish();
     }
 
     @Override
