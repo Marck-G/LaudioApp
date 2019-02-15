@@ -48,33 +48,37 @@
 
     <ImageView
         android:id="@+id/jarraitu4"
-        android:layout_width="162dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_width="171dp"
+        android:layout_height="136dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_marginBottom="15dp"
         android:onClick="continuar4"
-        android:src="@drawable/ic_btn2"
+        android:src="@drawable/ic_btn"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="214dp"
-        tools:layout_editor_absoluteY="644dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="38dp" />
+        tools:layout_editor_absoluteY="644dp" />
 
     <TextView
         android:id="@+id/etiqueta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/infoTren"
+        android:layout_alignRight="@+id/infoTren"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="43dp"
+        android:layout_marginEnd="-12dp"
+        android:layout_marginRight="-12dp"
+        android:textColor="@color/negro"
+        android:layout_marginBottom="73dp"
+        android:fontFamily="@font/permanent_marker_regular"
         android:text="@string/jarraitu"
         android:textSize="25dp"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="251dp"
-        tools:layout_editor_absoluteY="670dp"
-        android:layout_alignRight="@+id/infoTren" />
+        tools:layout_editor_absoluteY="670dp" />
 
 </RelativeLayout>

@@ -47,22 +47,23 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="5dp"
-        android:src="@drawable/ic_btn2"
+        android:src="@drawable/ic_btn"
         android:layout_alignParentRight="true"
-        android:visibility="invisible"
+        android:visibility=""
         android:layout_marginRight="5dp" />
 
     <TextView
         android:id="@+id/jarraituTren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="31dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="36dp"
-        android:textColor="@color/negro"
-        android:textSize="30dp"
         android:layout_marginRight="48dp"
-        android:layout_alignParentRight="true" />
+        android:layout_marginBottom="31dp"
+        android:fontFamily="@font/permanent_marker_regular"
+        android:textColor="@color/negro"
+        android:textSize="30dp" />
 
 </RelativeLayout>

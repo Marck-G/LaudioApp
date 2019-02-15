@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dev.mohawk.laudioapp.mapResources.Places;
+import com.google.android.gms.tasks.Task;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
@@ -106,18 +108,9 @@ public class NavegacionActivity extends AppCompatActivity {
                 mapboxMap.getLocationComponent().setLocationComponentEnabled( true );
                 mapboxMap.getLocationComponent().setCameraMode( CameraMode.TRACKING );
                 mapboxMap.getLocationComponent().setRenderMode( RenderMode.COMPASS );
-                LatLng posAct = new LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
-                        mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
-                while( !Places.equals( Places.getPlace( destino ), posAct ) ){
-                    posAct = new  LatLng( mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
-                            mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude() );
-                    try {
-                        Thread.sleep( 300 );
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                starActivity();
+                final LatLng[] posAct = {new LatLng(mapboxMap.getLocationComponent().getLastKnownLocation().getLatitude(),
+                        mapboxMap.getLocationComponent().getLastKnownLocation().getLongitude())};
+
             }
         } );
 
