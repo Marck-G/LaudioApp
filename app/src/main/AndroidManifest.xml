@@ -69,6 +69,8 @@
         <activity android:name=".Zeramika1Activity"></activity>
         <activity android:name=".Zeramika2Activity" />
         <activity android:name=".TrenGeltokia4" />
+        <activity android:name=".FinFuentes" />
+        <activity android:name=".Fuentes" />
     </application>
 
 </manifest>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:fontFamily="@font/permanent_marker_regular"
+        android:gravity="center"
+        android:text="@string/tituloJ"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

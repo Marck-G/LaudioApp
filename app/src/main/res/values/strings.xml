@@ -72,5 +72,19 @@ aurkitzeko aukera galduko duzue”</string>
         ... uooohh!!; badirudi ondare honetako
         jendea garrantzitsua izan behar zela...
     </string>
+    <string name="tituloJ">Zuhaitzak Eta Euren Plakak Bikoteka Jartzeko</string>
+    <string name="tituloL">Lamuza Parkea</string>
+    <string name="repetir">Errepikatu</string>
+    <string name="seguir">Jarraitu</string>
+    <string name="lamuza_parkea_ingurua">Lamuza Parkea Ingurua</string>
+    <string name="tituloF">Iturri Bereziak</string>
+    <string name="felicitacion">Zorionak!, Jokoa Bukatu Duzue</string>
+    <string name="urmaela">Urmaela</string>
+    <string name="sakatu">SAKATU</string>
+    <string name="skate">SKATE</string>
+    <string name="zubia">ZUBIA</string>
+    <string name="gudariak">GUDARIAK</string>
+
+
 
 </resources>

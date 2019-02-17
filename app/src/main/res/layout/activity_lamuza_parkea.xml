@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/background_img_piedra"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text="@string/tituloL"
+                android:textAlignment="center"
+                android:textSize="45sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/permanent_marker_regular"/>
+
+
+            <ImageView
+                android:id="@+id/lamuza_parkea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="159dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="1dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/lamuza_parkea" />
+
+            <ImageView
+                android:layout_width="149dp"
+                android:layout_height="171dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="235dp"
+                android:layout_marginTop="383dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="13dp"
+                android:src="@drawable/perfect_arantza" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
