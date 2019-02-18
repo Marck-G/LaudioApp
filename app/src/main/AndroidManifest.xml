@@ -71,6 +71,16 @@
         <activity android:name=".TrenGeltokia4" />
         <activity android:name=".FinFuentes" />
         <activity android:name=".Fuentes" />
+        <activity android:name=".Katuxa" />
+        <activity android:name=".Gudariak" />
+        <activity android:name=".Juego" />
+        <activity android:name=".LamuzaParkea" />
+        <activity android:name=".LamuzaParkeaIngurua" />
+        <activity android:name=".Urmaela" />
+        <activity android:name=".Ruta" />
+        <activity android:name=".PreGame" />
+        <activity android:name=".Zubia" />
+        <activity android:name=".Lorategia" />
     </application>
 
 </manifest>

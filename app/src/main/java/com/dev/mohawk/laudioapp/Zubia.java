@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
 
 public class Zubia extends AppCompatActivity {
 
@@ -57,5 +61,23 @@ public class Zubia extends AppCompatActivity {
 
             }
         } );
+    }
+
+    private void saveChanges(){
+        Places.setContext(this);
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.DORRETXEA ) + "6" ;
+        Log.e( "DB", m.toString() );
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent( this, MainActivity.class );
+        startActivity( i );
+        finish();
     }
 }

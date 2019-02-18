@@ -16,7 +16,7 @@
 
         <fragment
             android:id="@+id/mpFragment"
-            android:name="com.example.dm2.atry.MapFragment"
+            android:name="com.dev.mohawk.laudioapp.MapFragment"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"

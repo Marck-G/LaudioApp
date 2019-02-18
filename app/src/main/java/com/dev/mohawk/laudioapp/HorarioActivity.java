@@ -1,7 +1,6 @@
 package com.dev.mohawk.laudioapp;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +29,7 @@ public class HorarioActivity extends AppCompatActivity {
     // TODO: crear una constante int por cada actividad que se necesite
     public static final String SIG_ACT = "act_sig";
     public static final int ZERAMIKA2 = 0x000f2;
+    public static final int PARKE = 0x000f3;
     private String[][] data;
     private Selector s;
     private int sgAct;
@@ -81,7 +80,10 @@ public class HorarioActivity extends AppCompatActivity {
         Intent i = null;
         switch ( sgAct ){
             case ZERAMIKA2:
-                i = new Intent( this, Zeramika3Activity.class );
+                i = new Intent( this, Katuxa1Activity.class );
+                break;
+            case PARKE:
+                i = new Intent( this, LamuzaParkea.class );
                 break;
         }
         startActivity(i);

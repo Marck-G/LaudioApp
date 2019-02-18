@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
 
 public class Fuentes extends AppCompatActivity {
 
@@ -79,11 +83,30 @@ public class Fuentes extends AppCompatActivity {
                 if( !foto4.getTag().toString().equals( ACIERTO ) ){
                     error.start();
                 }else{
+                    saveChanges();
                     Intent finFuentes = new Intent( Fuentes.this , FinFuentes.class );
                     startActivity( finFuentes );
                     finish();
                 }
             }
         } );
+    }
+
+    private void saveChanges(){
+        Places.setContext(this);
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.DORRETXEA ) + "2" ;
+        Log.e( "DB", m.toString() );
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent( this, MainActivity.class );
+        startActivity( i );
+        finish();
     }
 }

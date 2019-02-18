@@ -301,6 +301,48 @@ public class MainActivity extends AppCompatActivity {
             case 52:
                 intent = new Intent( this, Zeramika2Activity.class );
                 break;
+            case 53:
+                intent = new Intent( this, Zeramika3Activity.class );
+                break;
+            case 61:
+                intent = new Intent( this, Katuxa1Activity.class );
+                break;
+            case 71:
+                intent = new Intent( this, Lorategia.class );
+                break;
+            case 72:
+                intent = new Intent( this, LamuzaParkea.class );
+                break;
+            case 73:
+                intent = new Intent( this, Juego.class );
+                break;
+            case 74:
+                intent = new Intent( this, FinJuego.class );
+                break;
+            case 75:
+                intent = new Intent( this, LamuzaParkeaIngurua.class );
+                break;
+            case 81:
+                intent = new Intent( this, PreGame.class );
+                break;
+            case 82:
+                intent = new Intent( this, Fuentes.class);
+                break;
+            case 83:
+                intent = new Intent( this, FinFuentes.class);
+                break;
+            case 84:
+                intent = new Intent( this, Urmaela.class);
+                break;
+            case 85:
+                intent = new Intent( this, Skate.class);
+                break;
+            case 86:
+                intent = new Intent( this, Zubia.class);
+                break;
+            case 87:
+                intent = new Intent( this, Gudariak.class);
+                break;
         }
         if ( intent != null ){
             startActivity( intent );

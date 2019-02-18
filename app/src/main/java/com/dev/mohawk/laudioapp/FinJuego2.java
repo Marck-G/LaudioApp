@@ -23,7 +23,7 @@ public class FinJuego2 extends AppCompatActivity {
         botJar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento=new Intent(FinJuego2.this,InicioPuzle.class);
+                Intent intento=new Intent(FinJuego2.this,TrenGeltokia1.class);
                 saveChanges();
                 startActivity(intento);
                 finish();

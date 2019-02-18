@@ -105,5 +105,6 @@ public class Zeramika1Activity extends AppCompatActivity {
     public void onBackPressed() {
         Intent i = new Intent( this, MainActivity.class );
         startActivity( i );
+        finish();
     }
 }

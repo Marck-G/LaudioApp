@@ -31,10 +31,7 @@ public class Katuxa extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_katuxa );
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        StrictMode.ThreadPolicy policy = new
-                StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        ;
 
         arantza18 = MediaPlayer.create(this, R.raw.arantza18); // "Reproductor del Sonido"
         arantza18.start(); // Iniciar el Sonido al iniciar la actividad
@@ -50,72 +47,6 @@ public class Katuxa extends AppCompatActivity {
             }
         });
 
-        try {
-            descargaDeHorarios();
-        } catch ( RenfeRequest.WrongDateFormatException e ) {
-            e.printStackTrace();
-        }
-
-    }
-    //    descarga de horarios
-    private void descargaDeHorarios() throws RenfeRequest.WrongDateFormatException {
-        Date toDay = new Date();
-        SimpleDateFormat format = new SimpleDateFormat( "dd-MM-yyyy" );
-//        creamos las variables
-        final RequestParams st_llodio = new RequestParams()
-                .put( RequestParams.HORA_DESTINO, "26" )
-                .put( RequestParams.DESTINO, "13106" ) // santa cruz
-                .put( RequestParams.ORIGEN, "13104" ) // llodio
-                .put( RequestParams.HORA_ORIGEN, "2" )
-                .put( RequestParams.FECHA, RenfeRequest.formatDate( format.format( toDay ) ) );
-
-        new Handler().postDelayed( new Runnable() {
-            @Override
-            public void run() {
-                RenfeRequest r = RenfeRequest.build();
-                try {
-                    r.setParams( st_llodio );
-                    r.buildURL();
-                    r.connect( Katuxa.this.openFileOutput( ST_LLODIO_H_FILE, MODE_PRIVATE ) );
-                } catch ( RequestParams.ParamNotFoundException e ) {
-                    Log.e( "HORARIOS", "Parametros erroneos", e );
-                } catch ( FileNotFoundException e ) {
-                    Log.e( "HORARIOS", "File not found", e );
-                } catch ( MalformedURLException e ) {
-                    Log.e( "HORARIOS", "URL erronea", e );
-                } catch ( IOException e ) {
-                    Log.e( "HORARIOS", "", e );
-                }
-            }
-        },500 );
-
-        final RequestParams llodio_st = new RequestParams()
-                .put( RequestParams.HORA_DESTINO, "26" )
-                .put( RequestParams.DESTINO, "13104" ) // santa cruz
-                .put( RequestParams.ORIGEN, "13106" ) // llodio
-                .put( RequestParams.HORA_ORIGEN, "2" )
-                .put( RequestParams.FECHA, RenfeRequest.formatDate( format.format( toDay ) ) );
-        new Handler().postDelayed( new Runnable() {
-            @Override
-            public void run() {
-                RenfeRequest r = RenfeRequest.build();
-                try {
-                    r.setParams( llodio_st );
-                    r.buildURL();
-                    r.connect( Katuxa.this.openFileOutput( LLODIO_ST_H_FILE, MODE_PRIVATE ) );
-                    Toast.makeText( Katuxa.this.getApplicationContext(),
-                            "Horarios Actualizados", Toast.LENGTH_SHORT ).show();
-                } catch ( RequestParams.ParamNotFoundException e ) {
-                    Log.e( "HORARIOS", "Parametros erroneos", e );
-                } catch ( FileNotFoundException e ) {
-                    Log.e( "HORARIOS", "File not found", e );
-                } catch ( MalformedURLException e ) {
-                    Log.e( "HORARIOS", "URL erronea", e );
-                } catch ( IOException e ) {
-                    Log.e( "HORARIOS", "", e );
-                }
-            }
-        }, 1000 );
     }
 
 }

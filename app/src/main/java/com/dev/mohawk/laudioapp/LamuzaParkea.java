@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.WindowManager;
+
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
 
 public class LamuzaParkea extends AppCompatActivity {
 
@@ -23,10 +27,28 @@ public class LamuzaParkea extends AppCompatActivity {
         arantza19.setOnCompletionListener( new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion( MediaPlayer mp ) {
+                saveChanges();
                 Intent juego = new Intent( LamuzaParkea.this , Juego.class );
                 startActivity( juego );
                 finish();
             }
         } );
+    }
+    private void saveChanges(){
+        Places.setContext(this);
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.PARKE ) + "2" ;
+        Log.e( "DB", m.toString() );
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent( this, MainActivity.class );
+        startActivity( i );
+        finish();
     }
 }

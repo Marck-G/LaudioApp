@@ -39,16 +39,12 @@ public class MapFragment extends Fragment {
         botonTren.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
-
+                Lorategia.getLor().saveChanges();
                 Intent horario = new Intent( getContext() , HorarioActivity.class );
                 horario.putExtra( HorarioActivity.DIRECCION, HorarioActivity.ST_LLODIO );
+                horario.putExtra( HorarioActivity.SIG_ACT,"" );
                 startActivity( horario );
-                
-
-
                 Lorategia.getLor().finish();
-
-
             }
         } );
 

@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -449,7 +453,7 @@ public class Juego extends AppCompatActivity {
                 iv_42.getVisibility() == View.INVISIBLE &&
                 iv_43.getVisibility() == View.INVISIBLE &&
                 iv_44.getVisibility() == View.INVISIBLE ){
-
+            saveChanges();
             Intent intento = new Intent( Juego.this , FinJuego.class );
             startActivity( intento );
             finish();
@@ -476,6 +480,24 @@ public class Juego extends AppCompatActivity {
         image206 = R.drawable.placa_6;
         image207 = R.drawable.placa_7;
         image208 = R.drawable.placa_8;
+    }
+
+    private void saveChanges(){
+        Places.setContext(this);
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.PARKE ) + "3" ;
+        Log.e( "DB", m.toString() );
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent( this, MainActivity.class );
+        startActivity( i );
+        finish();
     }
 
 

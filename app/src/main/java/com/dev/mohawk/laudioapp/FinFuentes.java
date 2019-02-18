@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.dev.mohawk.laudioapp.database.DBManager;
+import com.dev.mohawk.laudioapp.mapResources.Places;
 
 public class FinFuentes extends AppCompatActivity {
 
@@ -60,6 +64,7 @@ public class FinFuentes extends AppCompatActivity {
     }
 
     public void continuar(  ) {
+        saveChanges();
         Intent lamuza = new Intent( FinFuentes.this, Urmaela.class );
         startActivity( lamuza );
         finish();
@@ -70,5 +75,23 @@ public class FinFuentes extends AppCompatActivity {
         startActivity( juego );
         finish();
         repitiendo = true;
+    }
+
+    private void saveChanges(){
+        Places.setContext(this);
+//        creamos la instancia de la base de datos
+        DBManager m = new DBManager( this, DBManager.DB_NAME, null, 1 );
+//        construimos el id
+        String id = Places.getId( Places.DORRETXEA ) + "3" ;
+        Log.e( "DB", m.toString() );
+//        actualizamos la base de datos
+        m.updateLastPoint( Integer.parseInt( id ) );
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent( this, MainActivity.class );
+        startActivity( i );
+        finish();
     }
 }
