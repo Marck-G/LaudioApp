@@ -42,7 +42,7 @@ public class MapFragment extends Fragment {
                 Lorategia.getLor().saveChanges();
                 Intent horario = new Intent( getContext() , HorarioActivity.class );
                 horario.putExtra( HorarioActivity.DIRECCION, HorarioActivity.ST_LLODIO );
-                horario.putExtra( HorarioActivity.SIG_ACT,"" );
+                horario.putExtra( HorarioActivity.SIG_ACT,HorarioActivity.PARKE );
                 startActivity( horario );
                 Lorategia.getLor().finish();
             }
